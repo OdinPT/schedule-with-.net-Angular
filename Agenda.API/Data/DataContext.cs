@@ -12,5 +12,6 @@ namespace Agenda.APi.Data
         public DataContext(DbContextOptions<DataContext> options):base (options) {}
 
         public DbSet<Value> values { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }

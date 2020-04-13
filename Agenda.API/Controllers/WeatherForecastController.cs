@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Agenda.APi.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace Agenda.APi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
        
-
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly DataContext _context;
         public WeatherForecastController(ILogger<WeatherForecastController> logger, DataContext context)
@@ -23,8 +24,6 @@ namespace Agenda.APi.Controllers
             _context = context;
         }
 
-      
-
         [HttpGet]
         public async Task<IActionResult> GetValues() 
         {
@@ -32,6 +31,7 @@ namespace Agenda.APi.Controllers
             return Ok(values);
 
         }
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
