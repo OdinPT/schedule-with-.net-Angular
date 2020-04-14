@@ -1,6 +1,7 @@
 ﻿using Agenda.APi.Data;
 using Agenda.APi.Dtos;
 using Agenda.APi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;

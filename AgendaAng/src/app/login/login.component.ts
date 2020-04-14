@@ -8,7 +8,7 @@ import { AuthService } from '../_services/auth.service';
 })
 export class LoginComponent implements OnInit {
  model: any = {};
-
+ registerMode = false;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -20,5 +20,9 @@ export class LoginComponent implements OnInit {
     }, error => {
       console.log('Failed to login');
     });
+  }
+  
+  registerToggle() {
+    this.registerMode = !this.registerMode;
   }
 }

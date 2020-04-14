@@ -1,0 +1,22 @@
+   
+<form #loginForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="register()">
+        <p>Registar novo Funcionário</p>
+
+  <div class ="form-group">
+        <input class="form-control" placeholder="Username to register"  
+          autofocus="" required [(ngModel)]="model.username" required name="username"> 
+  </div>
+
+    <input type="password" class="form-control" placeholder="Password"  required name="password"
+                   required [(ngModel)]="model.password">
+
+   <input  class="form-control" placeholder="E-mail"  required name="email"
+                   required [(ngModel)]="model.email">
+
+   <input  class="form-control" placeholder="Numero de Contacto"  required name="number"
+                   required [(ngModel)]="model.number">                 
+
+   <button  class="btn btn-lg btn-primary btn-block" type="submit">Registar utilizador</button>
+<button  class="btn btn-lg btn-primary btn-block" type="button" (click)="cancel()">Cancel</button>
+</form>
+

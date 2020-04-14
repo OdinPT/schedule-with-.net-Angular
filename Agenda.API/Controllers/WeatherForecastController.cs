@@ -23,7 +23,7 @@ namespace Agenda.APi.Controllers
             _logger = logger;
             _context = context;
         }
-
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues() 
         {
