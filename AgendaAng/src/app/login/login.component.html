@@ -1,9 +1,13 @@
+<div *ngIf="loggedIn()" style="text-align: center">
+  <div class="text-center">
+    <app-menu-nav></app-menu-nav>
+  </div>
+</div>
 
-  <img id="comp-iqtizmsmimgimage" style="object-position:50% 50%;width:140px;height:120px;object-fit:cover" alt="" data-type="image" itemprop="image" src="https://static.wixstatic.com/media/62d52f_ec9d4749df7b4e0288f9b3ddf9342c32~mv2.png/v1/fill/w_171,h_136,al_c,q_85,usm_0.66_1.00_0.01/62d52f_ec9d4749df7b4e0288f9b3ddf9342c32~mv2.webp">
+<div *ngIf="!loggedIn()">
+ <img id="comp-iqtizmsmimgimage" style="object-position:50% 50%;width:140px;height:120px;object-fit:cover" alt="" data-type="image" itemprop="image" src="https://static.wixstatic.com/media/62d52f_ec9d4749df7b4e0288f9b3ddf9342c32~mv2.png/v1/fill/w_171,h_136,al_c,q_85,usm_0.66_1.00_0.01/62d52f_ec9d4749df7b4e0288f9b3ddf9342c32~mv2.webp">
  
   <h1 class="h3 mb-3 font-weight-normal">Agenda</h1>
-
-  
    
 <form #loginForm="ngForm" class="form-signin" (ngSubmit)="login()">
   <input class="form-control" placeholder="Username"  
@@ -14,5 +18,5 @@
 
 <button  class="btn btn-lg btn-primary btn-block" type="register">iniciar sessão</button> 
 </form>
-
 <app-home></app-home>
+</div>

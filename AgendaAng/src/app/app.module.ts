@@ -9,22 +9,30 @@ import {FormsModule} from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { MenuNavComponent } from './menu-nav/menu-nav.component';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { AlertifyService } from './_services/alertify.service';
+
 
 @NgModule({
    declarations: [
       AppComponent,
       LoginComponent,
       RegisterComponent,
-      HomeComponent
+      HomeComponent,
+      MenuNavComponent
    ],
    imports: [
 	 BrowserModule,
 	 AppRoutingModule,
 	 HttpClientModule,
-	 FormsModule
+    FormsModule,
+   
 	],
    providers: [
-      AuthService
+      AuthService,
+      ErrorInterceptorProvider,
+      AlertifyService
    ],
    bootstrap: [
       AppComponent

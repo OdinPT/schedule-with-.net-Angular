@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand navbar-dark bg-primary">
+  <a class="navbar-brand" href="#">Agenda</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" 
+          aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExample02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Lista de Contactos <span class="sr-only">(current)</span></a>
+      </li>
+     
+    </ul>
+    
+  </div>
+
+  <form class="form-inline my-1 my-md-0">
+    <input class="form-control" type="text" width="10" height="5" placeholder="Search">
+  </form>
+  
+  <div *ngIf="loggedIn()">
+    <a class="text-light">  Welcome {{authservice.decodedToken?.unique_name |   titlecase}}
+      <a  (click)="logout()"> (Sair)</a> </a>
+  </div>
+
+</nav>
