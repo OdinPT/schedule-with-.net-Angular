@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Agenda.APi.Data;
 using Agenda.APi.Helpers;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
@@ -36,7 +37,9 @@ namespace Agenda.APi
         {
             services.AddDbContext<DataContext>(x => x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
             services.AddCors();
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IContactRepo, ContactRepo>();
             services.AddControllers();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -77,8 +80,8 @@ namespace Agenda.APi
                     });
                 });
             }
-                app.UseHttpsRedirection();
-
+            //app.UseHttpsRedirection();
+         
                 app.UseRouting();
                 app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
                 app.UseAuthentication();

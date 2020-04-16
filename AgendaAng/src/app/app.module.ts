@@ -13,6 +13,11 @@ import { MenuNavComponent } from './menu-nav/menu-nav.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
 
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
+import { MembersComponent } from './members/members.component';
+import { AuthGuard } from './_guards/auth.guard';
+
 
 @NgModule({
    declarations: [
@@ -20,19 +25,21 @@ import { AlertifyService } from './_services/alertify.service';
       LoginComponent,
       RegisterComponent,
       HomeComponent,
-      MenuNavComponent
+      MenuNavComponent,
+      MembersComponent
    ],
    imports: [
 	 BrowserModule,
 	 AppRoutingModule,
 	 HttpClientModule,
-    FormsModule,
-   
+	 FormsModule,
+	 RouterModule.forRoot(appRoutes),
 	],
    providers: [
       AuthService,
       ErrorInterceptorProvider,
-      AlertifyService
+      AlertifyService,
+      AuthGuard
    ],
    bootstrap: [
       AppComponent

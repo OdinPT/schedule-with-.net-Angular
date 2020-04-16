@@ -3,14 +3,16 @@ using System;
 using Agenda.APi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Agenda.APi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200415144247_ContactsAndFotos")]
+    partial class ContactsAndFotos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,17 +24,11 @@ namespace Agenda.APi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("DataAniversarioContact")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("EmailContact")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("IdEmployee")
                         .HasColumnType("INTEGER");
-
-                    b.Property<string>("NomeContact")
-                        .HasColumnType("TEXT");
 
                     b.Property<int>("NumeroContact")
                         .HasColumnType("INTEGER");

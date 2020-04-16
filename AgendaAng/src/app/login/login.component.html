@@ -1,6 +1,8 @@
 <div *ngIf="loggedIn()" style="text-align: center">
   <div class="text-center">
-    <app-menu-nav></app-menu-nav>
+    
+    <app-menu-nav></app-menu-nav> 
+    <router-outlet></router-outlet>
   </div>
 </div>
 
@@ -18,5 +20,7 @@
 
 <button  class="btn btn-lg btn-primary btn-block" type="register">iniciar sessão</button> 
 </form>
+
 <app-home></app-home>
+
 </div>

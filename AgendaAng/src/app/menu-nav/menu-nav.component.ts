@@ -26,5 +26,6 @@ export class MenuNavComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     console.log('logged out');
+    this.router.navigate(['/Contactos']);
   }
 }
