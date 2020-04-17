@@ -26,8 +26,6 @@ namespace Agenda.APi.Controllers
             _mapper = mapper;
         }
         [HttpPost("register")]
-        // public async Task<IActionResult> register(ContactToRegisterDto contactToRegisterDto, string NomeContact, string EmailContact, string NumeroContact,
-        //string IdEmployee, string DataAniversarioContact)
 
         public async Task<IActionResult> register(ContactToRegisterDto contactToRegisterDto)
         {

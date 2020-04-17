@@ -6,6 +6,6 @@ export interface User {
     emailContact: string;
     numeroContact: string;
     idEmployee: string;
-    dataAniversarioContact: string;
+    dataAniversarioContact: Date;
     photosUrl?: Foto[];
 }

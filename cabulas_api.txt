@@ -1,0 +1,35 @@
+get contactos
+
+http://localhost:5000/api/contact/
+
+_
+
+get contacts by id
+http://localhost:5000/api/contact/19
+
+__
+Delete
+http://localhost:5000/api/contact/19
+
+__
+put
+
+http://localhost:5000/api/contact/20
+{
+    "nomeContact": "ALberto_asa",
+    "emailContact": "at@gmail.com",
+    "numeroContact": "2220",
+    "idEmployee": "1",
+    "dataAniversarioContact": "31-5-1950"
+}
+___
+POST
+http://localhost:5000/api/contact/register
+{
+    "nomeContact": "push",
+    "emailContact": "at@gmail.com",
+    "numeroContact": "2220",
+    "idEmployee": "1",
+    "dataAniversarioContact": "31-5-1950"
+
+}
