@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { ContactosService } from 'src/app/_services/contactos.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
-import { format } from 'path';
 
 
 @Component({
@@ -37,7 +36,7 @@ delete(idContact) {
   console.log(idContact);
   this.contactosService.registerDelete(idContact).subscribe(() => {
     this.alertify.success('delete successful');
-    this.loadContactos();
+    this.contactosService.getContactos();
   }, error => {
     this.alertify.error(error);
   });

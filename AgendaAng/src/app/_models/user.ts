@@ -2,7 +2,7 @@ import { Foto } from './Foto';
 
 export interface User {
     idContact: number;
-    NomeContact: string;
+    nomeContact: string;
     emailContact: string;
     numeroContact: string;
     idEmployee: string;
