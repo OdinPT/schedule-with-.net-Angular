@@ -1,9 +1,9 @@
-<form #redcontactForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="registerContact()">
+<form #regcontactForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="registerContact()">
   <p>Registar novo Funcionário</p>
 
 <div class ="form-group">
   <input class="form-control" placeholder="Nome do contacto"  
-    autofocus="" required [(ngModel)]="model.nomecontacto" required name="nomeContact"> 
+    autofocus="" required [(ngModel)]="model.NomeContact" required name="NomeContact"> 
 </div>
 <input  class="form-control" placeholder="E-mail"  required name="emailContact"
              required [(ngModel)]="model.emailContact">
@@ -18,7 +18,7 @@
 <input  class="form-control" placeholder="Data de nascimento"  required name="dataAniversarioContact"
              required [(ngModel)]="model.dataAniversarioContact">                 
 
-<button  class="btn btn-lg btn-primary btn-block" type="submit">Registar utilizador</button>
+<button  class="btn btn-lg btn-primary btn-block" type="submit">Registar Contacto</button>
 <button  class="btn btn-lg btn-primary btn-block" type="button" (click)="cancel()">Cancel</button>
 </form>
 

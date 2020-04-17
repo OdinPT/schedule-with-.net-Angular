@@ -1,11 +1,14 @@
 
+<form #redForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="registercontact()">
   <div class="card w-150">
     <div class="card-body">
-      <h5 class="card-title"><h4>{{user.nomeContact}}</h4></h5>
+      <h5 class="card-title"><h4>{{user.NomeContact}}</h4></h5>
       <p class="card-text"> e-mail: {{user.emailContact}} </p>
       <p class="card-text"> Número telefone: {{user.numeroContact}} </p>
       <p class="card-text"> id: {{user.idContact}} </p>
 
-      <a href="#" class="btn btn-primary">Delete</a>
+      <a class="btn btn-primary" (click)="delete(user.idContact)">Delete</a>
+      
     </div>
 </div>
+</form>

@@ -25,4 +25,7 @@ getContacto(id): Observable<User> {
 registerContacto(model: any) {
   return this.http.post(this.baseUrl + 'contact/register', model);
 }
+registerDelete(idContact) {
+  return this.http.delete(this.baseUrl + 'contact/' + idContact);
+}
 }

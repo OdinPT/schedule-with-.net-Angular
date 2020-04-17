@@ -17,6 +17,11 @@ export class AddcontactoComponent implements OnInit {
   }
 
   registerContact() {
+    console.log(this.model.NomeContact);
+    console.log(this.model.emailContact);
+    console.log(this.model.numeroContact);
+    console.log(this.model.idEmployee);
+    console.log(this.model.dataAniversarioContact);
     this.contactoService.registerContacto(this.model).subscribe(() => {
       this.alertify.success('Registration successful');
     }, error => {
