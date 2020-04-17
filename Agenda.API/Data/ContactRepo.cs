@@ -37,6 +37,7 @@ namespace Agenda.APi.Data
             con.NumeroContact = NumeroContact;
             con.IdEmployee = IdEmployee;
             con.DataAniversarioContact = DataAniversarioContact;
+            
 
             await _context.contacts.AddAsync(con);
             await _context.SaveChangesAsync();

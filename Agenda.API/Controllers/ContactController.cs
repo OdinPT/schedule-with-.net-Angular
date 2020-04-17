@@ -62,10 +62,7 @@ namespace Agenda.APi.Controllers
         public async Task<IActionResult> UpdateContacto(int id, ContactToUpdateDto contactToUpdateDto)
         {
 
-
             var contacfromRepo = await _repo.GetContact(id);
-
-
 
             _mapper.Map(contactToUpdateDto, contacfromRepo);
 

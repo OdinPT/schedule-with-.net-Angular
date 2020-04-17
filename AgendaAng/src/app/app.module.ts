@@ -17,7 +17,15 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { ContactosService } from './_services/contactos.service';
+import { MemberListComponent } from './members/member-list/member-list.component';
+import { AddcontactoComponent } from './addcontacto/addcontacto.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
+export function tokenGetter() {
+   return localStorage.getItem('token');
+}
 
 @NgModule({
    declarations: [
@@ -26,20 +34,32 @@ import { AuthGuard } from './_guards/auth.guard';
       RegisterComponent,
       HomeComponent,
       MenuNavComponent,
-      MembersComponent
+      MembersComponent,
+      MemberListComponent,
+      MemberCardComponent,
+      AddcontactoComponent,
+      MemberCardComponent
    ],
    imports: [
 	 BrowserModule,
 	 AppRoutingModule,
 	 HttpClientModule,
 	 FormsModule,
-	 RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes),
+    JwtModule.forRoot({
+       config: {
+         tokenGetter: tokenGetter,
+         whitelistedDomains: ['localhost:5000'],
+         blacklistedRoutes: ['localhost:5000/api/auth'],
+       }
+    })
 	],
    providers: [
       AuthService,
       ErrorInterceptorProvider,
       AlertifyService,
-      AuthGuard
+      AuthGuard,
+      ContactosService
    ],
    bootstrap: [
       AppComponent

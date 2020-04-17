@@ -1,3 +1,11 @@
-<h3>
-  members works!
-</h3>
+<div class="containe mt-6 ml-6 mr-5">
+  <div class="row">
+    <div class="col-lg-2 mt2 col-md-3 " *ngFor="let user of users" >
+      
+      <app-member-card [user]="user"></app-member-card>
+      
+      
+    </div>
+    
+  </div>
+</div>
