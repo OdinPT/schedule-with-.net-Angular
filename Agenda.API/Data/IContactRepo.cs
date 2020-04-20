@@ -1,5 +1,6 @@
 ﻿using Agenda.APi.Dtos;
 using Agenda.APi.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,6 @@ namespace Agenda.APi.Data
         Task<Contact> RegisterContact(Contact con, string NomeContact, string EmailContact, string NumeroContact, 
                                             string IdEmployee, string DataAniversarioContact);
 
-       
 
     }
 }

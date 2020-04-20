@@ -1,0 +1,39 @@
+<p>
+  {{user?.emailContact}}
+</p>
+<div class="col-sm-8">
+  <div *ngIf="editContact.dirty" class="alert alert-info">
+    <p><strong>Information: </strong>You have made changes, any unsaved changes will be lost!!</p>
+  </div>
+</div>
+
+<form #editContact="ngForm" class="formreg" (ngSubmit)="updateContact()" >
+  <p>Registar novo Funcionário</p>
+
+<div class ="form-inline">
+  <label for="nomeContact"> Nome Contacto: </label>
+  <input class ="form-control" type="text" name="nomeContact" [(ngModel)]="user.nomeContact">
+</div>
+  
+<div class ="form-inline">
+  <label for="numeroContact"> Número: </label>
+  <input class ="form-control" type="text" name="numeroContact" [(ngModel)]="user.numeroContact">
+</div>
+
+<div class ="form-inline">
+  <label for="emailContact"> E-mail: </label>
+  <input class ="form-control" type="text" name="emailContact" [(ngModel)]="user.emailContact">
+</div>
+
+<div class ="form-inline">
+  <label for="idContact"> ID Contacto </label>
+  <input class="form-control" placeholder="Id Contacto" name="idContact" [(ngModel)]="user.idContact">
+
+</div>
+
+<div class ="form-inline">
+  <label for="dataAniversarioContact"> Aniversário </label>
+  <input class ="form-control" type="text" name="dataAniversarioContact" [(ngModel)]="user.dataAniversarioContact">
+</div>
+<button [disabled]="!editContact.dirty" class="btn btn-success btn-block">Save Changes</button>
+</form>

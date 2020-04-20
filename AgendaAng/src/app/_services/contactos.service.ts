@@ -28,4 +28,8 @@ registerContacto(model: any) {
 registerDelete(idContact) {
   return this.http.delete(this.baseUrl + 'contact/' + idContact);
 }
+updateContact(user: User) {
+  return this.http.put(this.baseUrl + 'contact/' + 48, user);
+}
+
 }

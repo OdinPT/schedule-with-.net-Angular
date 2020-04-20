@@ -1,4 +1,3 @@
-import { Foto } from './Foto';
 
 export interface User {
     idContact: number;
@@ -6,6 +5,6 @@ export interface User {
     emailContact: string;
     numeroContact: string;
     idEmployee: string;
-    dataAniversarioContact: Date;
-    photosUrl?: Foto[];
+    dataAniversarioContact: string;
+    //dataAniversarioContact: Date;
 }

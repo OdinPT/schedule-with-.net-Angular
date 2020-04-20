@@ -1,5 +1,6 @@
 ﻿using Agenda.APi.Dtos;
 using Agenda.APi.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Agenda.APi.Data
 
         public void Delete<T>(T entity) where T : class
         {
-            
+
             _context.Remove(entity);
             _context.SaveChanges();
         }
@@ -37,7 +38,7 @@ namespace Agenda.APi.Data
             con.NumeroContact = NumeroContact;
             con.IdEmployee = IdEmployee;
             con.DataAniversarioContact = DataAniversarioContact;
-            
+
 
             await _context.contacts.AddAsync(con);
             await _context.SaveChangesAsync();
@@ -47,7 +48,7 @@ namespace Agenda.APi.Data
 
         public async Task<Contact> GetContact(int id)
         {
-              
+
             var contact = await _context.contacts.Include(p => p.Photos).FirstOrDefaultAsync(u => u.IdContact == id);
             return contact;
         }
@@ -56,8 +57,6 @@ namespace Agenda.APi.Data
         {
             var users = await _context.contacts.Include(p => p.Photos).ToListAsync();
             return users;
-
-
         }
 
         public async Task<bool> SaveAll()

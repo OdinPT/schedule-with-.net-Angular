@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { MenuNavComponent } from './menu-nav/menu-nav.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
@@ -21,7 +22,8 @@ import { ContactosService } from './_services/contactos.service';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { AddcontactoComponent } from './addcontacto/addcontacto.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
-import { JwtModule } from '@auth0/angular-jwt';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -38,7 +40,8 @@ export function tokenGetter() {
       MemberListComponent,
       MemberCardComponent,
       AddcontactoComponent,
-      MemberCardComponent
+      MemberCardComponent,
+      MemberDetailComponent
    ],
    imports: [
 	 BrowserModule,
@@ -59,7 +62,8 @@ export function tokenGetter() {
       ErrorInterceptorProvider,
       AlertifyService,
       AuthGuard,
-      ContactosService
+      ContactosService,
+      PreventUnsavedChanges,
    ],
    bootstrap: [
       AppComponent

@@ -11,8 +11,8 @@ namespace Agenda.APi.Dtos
         public int IdContact { get; set; }
         public string NomeContact { get; set; }
         public string EmailContact { get; set; }
-        public int NumeroContact { get; set; }
-        public int IdEmployee { get; set; }
+        public string NumeroContact { get; set; }
+        public string IdEmployee { get; set; }
         public string DataAniversarioContact { get; set; }
         public string PhotosUrl { get; set; }
         public ICollection<Foto> Fotos { get; set; }

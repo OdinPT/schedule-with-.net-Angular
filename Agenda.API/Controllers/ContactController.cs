@@ -57,7 +57,7 @@ namespace Agenda.APi.Controllers
 
             return Ok(userToReturn);
         }
-        
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateContacto(int id, ContactToUpdateDto contactToUpdateDto)
         {
@@ -69,9 +69,8 @@ namespace Agenda.APi.Controllers
             if (await _repo.SaveAll())
                 return NoContent();
 
-            throw new Exception("Updating user  failed on save");
+            return Ok("teste");
         }
-
 
 
         [HttpDelete("{id}")]
@@ -89,5 +88,8 @@ namespace Agenda.APi.Controllers
 
           return Ok();
         }
+        
+       
+
     }
 }

@@ -9,6 +9,7 @@
 
       <a class="btn btn-primary" (click)="delete(user.idContact)">Delete</a>
       
+      <a class="btn btn-primary" [routerLink]="['/contactos/', user.idContact]">Update</a>
     </div>
 </div>
 </form>
