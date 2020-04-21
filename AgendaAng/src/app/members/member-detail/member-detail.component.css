@@ -1,0 +1,26 @@
+.formedit {
+    width:600px;
+    max-width: 200%;
+    padding: 20px;
+    
+    margin-top: 5px;
+
+    border: 2px solid red;
+    border-style: dashed;
+}
+
+input {
+    margin-top: 10px;
+    margin:5px;
+    height:20px;
+    background-color: #f5f5f5;
+}
+button{
+    margin-top: 15px;
+    padding: 5;
+}
+p {
+font-size: 20px;
+color: orange;
+font-weight:bold;
+}

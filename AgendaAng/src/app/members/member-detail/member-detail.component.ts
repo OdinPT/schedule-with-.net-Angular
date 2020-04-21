@@ -40,7 +40,6 @@ updateContact() {
   this.user.idEmployee = '1';
   this.contactosService.updateContact(this.user).subscribe(next => {
   this.alertify.success('Atualizado');
-  this.editForm.reset();
   }, error => {
     this.alertify.error(error);
   });

@@ -1,7 +1,7 @@
 
 export interface User {
     idContact: number;
-    nomeContact: string;
+    nomeContact?: string;
     emailContact: string;
     numeroContact: string;
     idEmployee: string;

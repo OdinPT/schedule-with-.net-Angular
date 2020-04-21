@@ -48,7 +48,7 @@ namespace Agenda.APi.Controllers
             var usersToReturn = _mapper.Map<IEnumerable<ContactForListDto>>(users);
             return Ok(usersToReturn);
         }
-
+        /*
         [HttpGet("{id}")]
         public async Task<IActionResult> Getcontact(int id)
         {
@@ -57,7 +57,7 @@ namespace Agenda.APi.Controllers
 
             return Ok(userToReturn);
         }
-
+        */
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateContacto(int id, ContactToUpdateDto contactToUpdateDto)
         {
