@@ -2,14 +2,14 @@
 <form #redForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="registercontact()">
   <div class="card w-150">
     <div class="card-body">
-      <h5 class="card-title"><h4>{{user.nomeContact}}</h4></h5>
+      <h5 class="card-title"><h4><b>{{user.nomeContact}}</b></h4></h5>
       <p class="card-text"> e-mail: {{user.emailContact}} </p>
       <p class="card-text"> Número telefone: {{user.numeroContact}} </p>
       <p class="card-text"> Data de Nascimento: {{user.dataAniversarioContact}} </p>
 
       <a class="btn btn-primary" (click)="delete(user.idContact)">Delete</a>
+      <a class="btn btn-primary" [routerLink]="['/contactos/',user.idContact]">Update</a>
       
-      <a class="btn btn-primary" [routerLink]="['/contactos/', user.idContact]">Update</a>
     </div>
 </div>
 </form>

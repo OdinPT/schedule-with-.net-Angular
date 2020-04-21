@@ -37,7 +37,7 @@ loadContacto() {
 }
 
 updateContact() {
-  this.user.idEmployee = '1';
+  this.user.idEmployee = 1;
   this.contactosService.updateContact(this.user).subscribe(next => {
   this.alertify.success('Atualizado');
   }, error => {

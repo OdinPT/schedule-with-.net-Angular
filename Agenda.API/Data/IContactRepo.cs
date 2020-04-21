@@ -17,7 +17,7 @@ namespace Agenda.APi.Data
         Task<Contact> GetContact(int id);
 
         Task<Contact> RegisterContact(Contact con, string NomeContact, string EmailContact, string NumeroContact, 
-                                            string IdEmployee, string DataAniversarioContact);
+                                            int IdEmployee, string DataAniversarioContact);
 
 
     }

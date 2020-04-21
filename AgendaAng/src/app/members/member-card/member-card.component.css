@@ -38,3 +38,14 @@
 text-align: left;
 font-size: 14px;
 }
+.btn-primary {
+    border:2px;
+    margin:5px;
+    color: #fff;
+    background-color: #3FB618;
+    border-color: #3FB618;
+}
+
+.card-title {
+    color:rgb(247, 103, 7);
+}

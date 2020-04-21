@@ -10,7 +10,7 @@ namespace Agenda.APi.Dtos
         public string NomeContact { get; set; }
         public string EmailContact { get; set; }
         public string NumeroContact { get; set; }
-        public string IdEmployee { get; set; }
+        public int IdEmployee { get; set; }
         public string DataAniversarioContact { get; set; }
     }
 }

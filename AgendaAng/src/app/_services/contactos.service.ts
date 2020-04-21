@@ -19,7 +19,7 @@ getContactos(): Observable<User[]> {
 }
 
 getContacto(id): Observable<User> {
-  return this.http.get<User>(this.baseUrl + 'contact/' + id);
+  return this.http.get<User>(this.baseUrl + 'contactID/' + id);
 }
 
 registerContacto(model: any) {

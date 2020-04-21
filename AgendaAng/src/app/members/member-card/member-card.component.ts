@@ -33,7 +33,6 @@ loadContactos() {
 }
 
 delete(idContact) {
-  console.log(idContact);
   this.contactosService.registerDelete(idContact).subscribe(() => {
     this.alertify.success('delete successful');
     this.contactosService.getContactos();

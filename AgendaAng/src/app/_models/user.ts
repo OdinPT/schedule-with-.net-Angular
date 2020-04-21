@@ -4,7 +4,7 @@ export interface User {
     nomeContact?: string;
     emailContact: string;
     numeroContact: string;
-    idEmployee: string;
+    idEmployee: number;
     dataAniversarioContact: string;
     //dataAniversarioContact: Date;
 }

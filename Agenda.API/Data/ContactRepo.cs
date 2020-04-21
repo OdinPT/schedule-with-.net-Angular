@@ -30,7 +30,7 @@ namespace Agenda.APi.Data
             _context.SaveChanges();
         }
         public async Task<Contact> RegisterContact(Contact con, string NomeContact, string EmailContact, string NumeroContact,
-          string IdEmployee, string DataAniversarioContact)
+          int IdEmployee, string DataAniversarioContact)
         {
 
             con.NomeContact = NomeContact;
@@ -52,12 +52,15 @@ namespace Agenda.APi.Data
             var contact = await _context.contacts.Include(p => p.Photos).FirstOrDefaultAsync(u => u.IdContact == id);
             return contact;
         }
+      
 
+      
         public async Task<IEnumerable<Contact>> Getcontacts()
         {
             var users = await _context.contacts.Include(p => p.Photos).ToListAsync();
             return users;
         }
+       
 
         public async Task<bool> SaveAll()
         {
