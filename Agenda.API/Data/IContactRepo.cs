@@ -15,6 +15,9 @@ namespace Agenda.APi.Data
         Task<bool> SaveAll();
         Task <IEnumerable<Contact>> Getcontacts();
         Task<Contact> GetContact(int id);
+        //Task<Contact> GetContactx(int name);
+
+        Task<IEnumerable<Contact>> search(string name);
 
         Task<Contact> RegisterContact(Contact con, string NomeContact, string EmailContact, string NumeroContact, 
                                             int IdEmployee, string DataAniversarioContact);

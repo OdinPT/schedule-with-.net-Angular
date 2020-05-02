@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, Input } from '@angular/core';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ContactosService } from 'src/app/_services/contactos.service';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,11 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class MemberDetailComponent implements OnInit {
   @ViewChild('editContact') editForm: NgForm;
-  user: User;
+  //user: User;
+  users: User[];
+  @Input() user: User;
+  model: any = {};
+ 
   @HostListener('window:beforeunload', ['$event'])
   unloadNotification($event: any) {
       if (this.editForm.dirty) {
@@ -40,6 +44,15 @@ updateContact() {
   this.user.idEmployee = 1;
   this.contactosService.updateContact(this.user).subscribe(next => {
   this.alertify.success('Atualizado');
+  }, error => {
+    this.alertify.error(error);
+  });
+}
+
+delete(idContact) {
+  this.contactosService.registerDelete(idContact).subscribe(() => {
+    this.alertify.success('delete successful');
+    this.contactosService.getContactos();
   }, error => {
     this.alertify.error(error);
   });

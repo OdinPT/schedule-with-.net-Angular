@@ -39,7 +39,6 @@ namespace Agenda.APi.Data
             con.IdEmployee = IdEmployee;
             con.DataAniversarioContact = DataAniversarioContact;
 
-
             await _context.contacts.AddAsync(con);
             await _context.SaveChangesAsync();
 
@@ -52,10 +51,13 @@ namespace Agenda.APi.Data
             var contact = await _context.contacts.Include(p => p.Photos).FirstOrDefaultAsync(u => u.IdContact == id);
             return contact;
         }
-      
+        public async Task<IEnumerable<Contact>> search(string name) // find
+        {
+            var users = await _context.contacts.Where(u => !string.IsNullOrWhiteSpace(name) ? u.NomeContact.Contains(name.Trim()) : true).ToListAsync();
+            return users;
+        }
 
-      
-        public async Task<IEnumerable<Contact>> Getcontacts()
+         public async Task<IEnumerable<Contact>> Getcontacts()
         {
             var users = await _context.contacts.Include(p => p.Photos).ToListAsync();
             return users;

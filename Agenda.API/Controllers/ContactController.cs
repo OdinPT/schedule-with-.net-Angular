@@ -25,8 +25,8 @@ namespace Agenda.APi.Controllers
             _repo = repo;
             _mapper = mapper;
         }
-        [HttpPost("register")]
 
+        [HttpPost("register")]
         public async Task<IActionResult> register(ContactToRegisterDto contactToRegisterDto)
         {
             contactToRegisterDto.NomeContact = contactToRegisterDto.NomeContact.ToLower();
@@ -47,6 +47,17 @@ namespace Agenda.APi.Controllers
             var users = await _repo.Getcontacts();
             var usersToReturn = _mapper.Map<IEnumerable<ContactForListDto>>(users);
             return Ok(usersToReturn);
+        }
+
+
+        [HttpGet("{name}")]
+        public async Task<IActionResult> Getcontactx(string name)
+        {
+
+            var user = await _repo.search(name);
+            var userToReturn = _mapper.Map<IEnumerable <ContactForListDto>>(user);
+
+            return Ok(userToReturn);
         }
 
         [HttpPut("{id}")]

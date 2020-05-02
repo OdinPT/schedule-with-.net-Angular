@@ -28,7 +28,7 @@ namespace Agenda.APi.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> Getcontact(int id)
+        public async Task<IActionResult> find(int id)
         {
             var user = await _repo.GetContact(id);
             var userToReturn = _mapper.Map<ContactForDetailedDto>(user);

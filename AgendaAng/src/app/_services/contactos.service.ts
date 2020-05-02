@@ -4,8 +4,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../_models/user';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -29,7 +27,15 @@ registerDelete(idContact) {
   return this.http.delete(this.baseUrl + 'contact/' + idContact);
 }
 updateContact(user: User) {
-  return this.http.put(this.baseUrl + 'contact/' + 48, user);
+  return this.http.put(this.baseUrl + 'contact/' + user.idContact, user);
 }
+search(model: any) {
+  return this.http.get(this.baseUrl + 'contact/' + model.word);
+}
+
+getContactoSearch(name) {
+  return this.http.get(this.baseUrl + 'contact/' + name);
+}
+
 
 }

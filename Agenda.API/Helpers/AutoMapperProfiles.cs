@@ -18,7 +18,9 @@ namespace Agenda.APi.Helpers
 
             CreateMap<ContactForListDto, Contact>();
 
-           
+            CreateMap <Contact, ContactForListDto>();
+
+
         }
     }
 }

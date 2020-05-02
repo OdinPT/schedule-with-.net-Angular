@@ -1,14 +1,11 @@
-
 <form #redForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="registercontact()">
-  <div class="card w-150">
-    <div class="card-body">
-      <h5 class="card-title"><h4><b>{{user.nomeContact}}</b></h4></h5>
-      <p class="card-text"> e-mail: {{user.emailContact}} </p>
-      <p class="card-text"> Número telefone: {{user.numeroContact}} </p>
-      <p class="card-text"> Data de Nascimento: {{user.dataAniversarioContact}} </p>
-
-      <a class="btn btn-primary" (click)="delete(user.idContact)">Delete</a>
-      <a class="btn btn-primary" [routerLink]="['/contactos/',user.idContact]">Update</a>
+  <div class="shadow p-3 mb-5 bg-white rounded" style="margin-right: 5px;  margin-top: 5px; height: 230px; position: static; border: 3px solid rgb(232, 233, 231);">
+    <div class="card-body" >
+      <p class="card-title"> <b> {{user.nomeContact}} </b> </p>
+      <!--<p class="card-text"> e-mail: {{user.emailContact}} </p> -->
+      <p class="card-text"> Telefone: {{user.numeroContact}} </p>
+      
+      <a class="btn btn-primary" [routerLink]="['/contactos/',user.idContact]">Ver Contacto</a>
       
     </div>
 </div>

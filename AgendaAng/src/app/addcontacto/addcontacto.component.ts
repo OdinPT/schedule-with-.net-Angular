@@ -20,7 +20,7 @@ export class AddcontactoComponent implements OnInit {
     console.log(this.model.NomeContact);
     console.log(this.model.emailContact);
     console.log(this.model.numeroContact);
-    this.model.IdEmployee = '1';
+    this.model.IdEmployee = 1;
     console.log(this.model.IdEmployee);
 
     console.log(this.model.dataAniversarioContact);
