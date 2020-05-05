@@ -1,22 +1,54 @@
    
-<form #loginForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="register()">
-        <p>Registar novo Funcionário</p>
+<form [formGroup]="registerFom" class="formreg" (ngSubmit)="register()">
+        <h3>Registar novo Funcionário</h3>
 
   <div class ="form-group">
-        <input class="form-control" placeholder="Nome de utilizador"  
-          autofocus="" required [(ngModel)]="model.username" required name="username"> 
+    <input type="text" 
+        class="form-control is-invalid"  
+        [ngClass]="{'is-invalid': registerFom.get('username').errors && registerFom.get('username').touched}"
+        placeholder="Nome de utilizador"  
+        autofocus="" required 
+        formControlName="username"> 
+        <div class="invalid-feedback">Please choose a username</div>
+
   </div>
+  <div class ="form-group">
+    <input type="password" class="form-control" 
+            placeholder="password"
+            formControlName="password"
+            [ngClass]="{'is-invalid': registerFom.get('password').errors && registerFom.get('password').touched}" >
 
-    <input type="password" class="form-control" placeholder="Password"  required name="password"
-                   required [(ngModel)]="model.password">
+          <div class="invalid-feedback"
+            *ngIf="registerFom.get('password').hasError('required')
+             && registerFom.get('password').touched">
+             Password is required
+          </div>
 
-   <input  class="form-control" placeholder="E-mail"  required name="email"
-                   required [(ngModel)]="model.email">
+          <div class="invalid-feedback"
+            *ngIf="registerFom.get('password').hasError('minlength')
+             && registerFom.get('password').touched">
+             Password must be at least 6 characters
+          </div>
 
-   <input  class="form-control" placeholder="Numero de Contacto"  required name="number"
-                   required [(ngModel)]="model.number">                 
+          <div class="invalid-feedback"
+            *ngIf="registerFom.get('password').hasError('maxlength') 
+            && registerFom.get('password').touched">
+             Password cannot exceed 16 characters
+          </div>
+  </div>
+   <input  class="form-control"
+           placeholder="E-mail"
+           formControlName="email">
 
-   <button  class="btn btn-lg btn-primary btn-block" type="submit">Registar utilizador</button>
-<button  class="btn btn-lg btn-primary btn-block" type="button" (click)="cancel()">Cancel</button>
+   <input  type="text" class="form-control" 
+            placeholder="Numero de Contacto"
+            formControlName="number">
+                           
+  
+  <div class= "button"> <br>                  
+     <button  class="btn btn-lg btn-primary btn-block" [disabled]="!registerFom.valid" type="submit">Registar utilizador</button>
+
+      <button  class="btn btn-lg btn-primary btn-block" type="button" (click)="cancel()">Cancel</button>
+  </div>
 </form>
 

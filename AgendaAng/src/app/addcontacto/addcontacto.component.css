@@ -16,8 +16,11 @@ button{
     margin-top: 15px;
     padding: 5;
 }
-p {
+h1 {
 font-size: 20px;
 color: orange;
 font-weight:bold;
+}
+p {
+    display: inline-block;
 }

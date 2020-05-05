@@ -1,4 +1,5 @@
 ﻿using Agenda.APi.Dtos;
+using Agenda.APi.Helpers;
 using Agenda.APi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,7 +14,9 @@ namespace Agenda.APi.Data
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;
         Task<bool> SaveAll();
-        Task <IEnumerable<Contact>> Getcontacts();
+        //Task <IEnumerable<Contact>> Getcontacts();
+
+        Task<PagedList<Contact>> Getcontacts(ContactParams contactParams);
         Task<Contact> GetContact(int id);
         //Task<Contact> GetContactx(int name);
 

@@ -1,4 +1,5 @@
 ﻿using Agenda.APi.Dtos;
+using Agenda.APi.Helpers;
 using Agenda.APi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -56,18 +57,23 @@ namespace Agenda.APi.Data
             var users = await _context.contacts.Where(u => !string.IsNullOrWhiteSpace(name) ? u.NomeContact.Contains(name.Trim()) : true).ToListAsync();
             return users;
         }
-
+        /*
          public async Task<IEnumerable<Contact>> Getcontacts()
         {
             var users = await _context.contacts.Include(p => p.Photos).ToListAsync();
             return users;
         }
-       
+       */
 
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0;
         }
 
+        public async Task<PagedList<Contact>> Getcontacts(ContactParams contactParams)
+        {
+            var contacts = _context.contacts.Include(p => p.Photos);
+            return await PagedList<Contact>.CreateAsync(contacts, contactParams.PageNumber, contactParams.PageSize);
+        }
     }
 }

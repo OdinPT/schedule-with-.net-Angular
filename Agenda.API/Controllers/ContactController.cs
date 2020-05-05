@@ -1,5 +1,6 @@
 ﻿using Agenda.APi.Data;
 using Agenda.APi.Dtos;
+using Agenda.APi.Helpers;
 using Agenda.APi.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -42,10 +43,12 @@ namespace Agenda.APi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetContacts()
+        public async Task<IActionResult> GetContacts([FromQuery]ContactParams contactParams)
         {
-            var users = await _repo.Getcontacts();
+             var users = await _repo.Getcontacts(contactParams);
             var usersToReturn = _mapper.Map<IEnumerable<ContactForListDto>>(users);
+
+            Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
             return Ok(usersToReturn);
         }
 
@@ -71,7 +74,8 @@ namespace Agenda.APi.Controllers
             if (await _repo.SaveAll())
                 return NoContent();
 
-            return Ok("teste");
+            //return Ok("teste");
+            throw new Exception($"Updating user {id} failed on save");
         }
 
 
@@ -85,7 +89,7 @@ namespace Agenda.APi.Controllers
               _repo.Delete(Rep);
 
             } else {
-               return BadRequest("saiu");
+               return BadRequest("");
             }
 
           return Ok();

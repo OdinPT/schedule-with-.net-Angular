@@ -8,10 +8,14 @@
 button{
     margin-top: 5px;
 }
-
-*, ::after, ::before {
-    box-sizing: border-box;
+.form_reg {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 5px;
 }
+
 
 input {
     margin: 100px;

@@ -1,24 +1,29 @@
 .formreg {
     width:100%;
-    max-width: 200%;
-    padding: 20px;
+    padding: 0px;
     
     margin-top: 5px;
 
-    border: 2px solid red;
+    border: 2px solid gray;
     border-style: dashed;
 }
 
 input {
-    margin-top: 10px;
+    margin-top: 20px;
+    width:95%;
+    margin-left:10px;
     background-color: #f5f5f5;
 }
-button{
-    margin-top: 15px;
-    padding: 5;
+
+button {
+    margin-top: 35px;
+    margin: 5px ;
+    border:1px solid gray;
+    display:inline-block;
+    width:180px;
+    
 }
-p {
-font-size: 20px;
-color: orange;
+h3 {
+color: red;
 font-weight:bold;
 }

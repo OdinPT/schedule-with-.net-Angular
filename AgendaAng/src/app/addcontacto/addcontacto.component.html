@@ -1,23 +1,43 @@
-<form #regcontactForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="registerContact()">
-  <p>Registar novo Contacto</p>
+<form  [formGroup]="registerContactForm" class="formreg" (ngSubmit)="registerContact()">
+  <h1>Registar novo Contacto</h1><br>
+
+  <div class ="form-group">
+    <input type="text" 
+        class="form-control is-invalid"  
+        [ngClass]="{'is-invalid': registerContactForm.get('nomeContact').errors 
+                                  && registerContactForm.get('nomeContact').touched}"
+        placeholder="Nome do Contacto"  
+        autofocus="" 
+        formControlName="nomeContact"> 
+        <div class="invalid-feedback">Insira o nome do contacto !!</div>
+  </div>
+
+  <div class ="form-group">
+    <input type="text" 
+        class="form-control "  
+        placeholder="Email do Contacto"  
+        autofocus="" 
+        formControlName="emailContact">  
+  </div>
 
 <div class ="form-group">
-  <input class="form-control" placeholder="Nome do contacto"  
-    autofocus="" required [(ngModel)]="model.NomeContact" required name="NomeContact"> 
+  <input type="text" 
+      class="form-control is-invalid"  
+      [ngClass]="{'is-invalid': registerContactForm.get('numeroContact').errors 
+                                && registerContactForm.get('numeroContact').touched}"
+      placeholder="Número do Contacto"  
+      autofocus="" 
+      formControlName="numeroContact"> 
+      <div class="invalid-feedback">Insira um número do contacto  entre 9 a 12 digitos!</div>
 </div>
-<input  class="form-control" placeholder="E-mail"  required name="emailContact"
-             required [(ngModel)]="model.emailContact">
 
+ <div class ="form-group">
+  <input type="date" 
+      class="form-control "  
+      placeholder="Data de nascimento do Contacto"  
+      autofocus="" 
+      formControlName="dataAniversarioContact">  
+</div>
+  <button  class="btn btn-lg btn-primary btn-block" [disabled]="!registerContactForm.valid" type="submit">Registar Contacto</button>
 
-<input  class="form-control" placeholder="Número de contacto"  required name="numeroContact"
-             required [(ngModel)]="model.numeroContact">
-
- 
-
-<input type="date" class="form-control" placeholder="Data de nascimento"  required name="dataAniversarioContact"
-             required [(ngModel)]="model.dataAniversarioContact">                 
-
-<button  class="btn btn-lg btn-primary btn-block" type="submit">Registar Contacto</button>
 </form>
-
-

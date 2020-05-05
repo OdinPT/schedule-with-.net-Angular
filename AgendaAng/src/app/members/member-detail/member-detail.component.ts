@@ -52,9 +52,6 @@ updateContact() {
 delete(idContact) {
   this.contactosService.registerDelete(idContact).subscribe(() => {
     this.alertify.success('delete successful');
-    this.contactosService.getContactos();
-  }, error => {
-    this.alertify.error(error);
   });
 }
 }

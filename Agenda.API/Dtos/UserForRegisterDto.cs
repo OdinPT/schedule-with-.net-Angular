@@ -11,7 +11,7 @@ namespace Agenda.APi.Dtos
         [Required]
         public string Username { get; set; }
         [Required]
-        
+        [StringLength(16, MinimumLength = 6, ErrorMessage = "Password deve ter entre 6 e 16 caracteres")]
         public string Password { get; set; }
         public string Email { get; set; }
 
