@@ -9,7 +9,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 export const appRoutes: Routes = [
-    { path: 'contactos', component: MembersComponent},
+    { path: 'contactos', component: MembersComponent, canActivate: [AuthGuard]},
     { path: 'contactos/:id', component: MemberDetailComponent},
     { path: 'form', component: AddcontactoComponent},
     { path: '**', redirectTo: 'contactos', pathMatch: 'full'},
