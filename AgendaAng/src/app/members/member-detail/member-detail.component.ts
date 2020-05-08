@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, HostListener, Input } from '@angular/core
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { ContactosService } from 'src/app/_services/contactos.service';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/_models/user';
+import { User } from 'src/app/_models/Contacto';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/_services/auth.service';
 
@@ -13,8 +13,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class MemberDetailComponent implements OnInit {
   @ViewChild('editContact') editForm: NgForm;
-  //user: User;
-  users: User[];
+  userx: User;
   @Input() user: User;
   model: any = {};
  
@@ -29,20 +28,16 @@ export class MemberDetailComponent implements OnInit {
               private route: ActivatedRoute, private authService: AuthService) { }
 
   ngOnInit() {
-    this.loadContacto();
+   this.route.data.subscribe(data => {
+     this.userx = data['user'];
+   })
   }
 
-loadContacto() {
-  this.contactosService.getContacto(+this.route.snapshot.params['id']).subscribe((user: User) => {
-    this.user = user;
-  }, error => {
-    this.alertify.error(error);
-  });
-}
 
 updateContact() {
-  this.user.idEmployee = 1;
-  this.contactosService.updateContact(this.user).subscribe(next => {
+  console.log(this.userx);
+  this.userx.idEmployee = 1;
+  this.contactosService.updateContact(this.userx).subscribe(next => {
   this.alertify.success('Atualizado');
   }, error => {
     this.alertify.error(error);

@@ -18,7 +18,7 @@ namespace Agenda.APi.Helpers
             TotalCount = count;
             PageSize = pageSize;
             CurrentPage = pageNumber;
-            TotalPages = (int)Math.Ceiling(count / (double)pageSize);
+            TotalPages = TotalPages;
             this.AddRange(items);
         } 
 

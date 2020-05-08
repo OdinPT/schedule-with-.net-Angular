@@ -6,4 +6,5 @@ export interface User {
     numeroContact: string;
     idEmployee: number;
     dataAniversarioContact: string;
+    
 }

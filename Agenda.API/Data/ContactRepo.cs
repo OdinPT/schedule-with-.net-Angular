@@ -55,25 +55,24 @@ namespace Agenda.APi.Data
         public async Task<IEnumerable<Contact>> search(string name) // find
         {
             var users = await _context.contacts.Where(u => !string.IsNullOrWhiteSpace(name) ? u.NomeContact.Contains(name.Trim()) : true).ToListAsync();
+            
+            await _context.SaveChangesAsync();
+
             return users;
         }
-        /*
+       
          public async Task<IEnumerable<Contact>> Getcontacts()
         {
             var users = await _context.contacts.Include(p => p.Photos).ToListAsync();
             return users;
         }
-       */
+       
 
         public async Task<bool> SaveAll()
         {
             return await _context.SaveChangesAsync() > 0;
         }
 
-        public async Task<PagedList<Contact>> Getcontacts(ContactParams contactParams)
-        {
-            var contacts = _context.contacts.Include(p => p.Photos);
-            return await PagedList<Contact>.CreateAsync(contacts, contactParams.PageNumber, contactParams.PageSize);
-        }
+       
     }
 }

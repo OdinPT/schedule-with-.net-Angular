@@ -1,9 +1,11 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import { ContactosService } from '../_services/contactos.service';
 import { AlertifyService } from '../_services/alertify.service';
-import { User } from '../_models/user';
+import { User } from '../_models/Contacto';
+import { FormGroup } from '@angular/forms';
+import { find } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu-nav',
@@ -14,8 +16,9 @@ export class MenuNavComponent implements OnInit {
   model: any = {};
   users: User[];
 
+  testex: FormGroup;
   constructor(public authservice: AuthService, private router: Router,
-              public contactos: ContactosService, private alertify: AlertifyService) { }
+              public contactosService: ContactosService, private alertify: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -25,37 +28,19 @@ export class MenuNavComponent implements OnInit {
     return !!token;
   }
 
-  loadContactos() {
-    this.contactos.getContactos().subscribe((users: User[]) => {
-      this.users = users;
-    }, error => {
-        this.alertify.error(error);
-    });
-}
-
-loadContactosearch(name) {
-  this.contactos.getContactoSearch(name).subscribe(() => {
-  }, error => {
-      this.alertify.error(error);
+  getContactoSearch() {
+  console.log(this.model.find);
+  this.contactosService.getContactoSearch(this.model).subscribe(() => {
+    this.alertify.success('Find');
+  
   });
 }
 
-registerContact() {
-  console.log(this.model.word);
-
-  this.contactos.search(this.model.word).subscribe(() => {
-    this.alertify.success('search successful');
-    
-    this.loadContactosearch(this.model.word);
-  }, error => {
-    this.alertify.error(error);
-  });
-}
-
-  logout() {
+ logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     console.log('logged out');
-    this.router.navigate(['/Contactos']);
+
   }
 }
+ 

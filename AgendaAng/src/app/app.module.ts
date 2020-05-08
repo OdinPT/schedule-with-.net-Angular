@@ -24,6 +24,11 @@ import { AddcontactoComponent } from './addcontacto/addcontacto.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+
+import {  NgxPaginationModule } from 'ngx-pagination';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -49,6 +54,8 @@ export function tokenGetter() {
 	 HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
+    PaginationModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     JwtModule.forRoot({
        config: {
@@ -56,7 +63,7 @@ export function tokenGetter() {
          whitelistedDomains: ['localhost:5000'],
          blacklistedRoutes: ['localhost:5000/api/auth'],
        }
-    })
+    }),
 	],
    providers: [
       AuthService,
@@ -65,6 +72,7 @@ export function tokenGetter() {
       AuthGuard,
       ContactosService,
       PreventUnsavedChanges,
+      MemberDetailResolver,
    ],
    bootstrap: [
       AppComponent

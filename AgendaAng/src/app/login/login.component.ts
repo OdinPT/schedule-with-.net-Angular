@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
  model: any = {};
  registerMode = false;
   constructor(private authService: AuthService, private http: HttpClient, private alertify: AlertifyService,
-               private router: Router) { }
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -26,15 +26,13 @@ export class LoginComponent implements OnInit {
       this.alertify.error('Não foi possivel iniciar sessão');
       (localStorage.removeItem('user'));
     }, () => {
-      this.router.navigate(['/Contactos']); 
+      this.router.navigate(['/Contactos']);
     });
 
   }
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
-
-
 
   loggedIn() {
     if (localStorage.getItem('user')) {

@@ -43,14 +43,13 @@ namespace Agenda.APi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetContacts([FromQuery]ContactParams contactParams)
+        public async Task<IActionResult> GetContacts()
         {
-             var users = await _repo.Getcontacts(contactParams);
+            var users = await _repo.Getcontacts();
             var usersToReturn = _mapper.Map<IEnumerable<ContactForListDto>>(users);
-
-            Response.AddPagination(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
             return Ok(usersToReturn);
         }
+
 
 
         [HttpGet("{name}")]

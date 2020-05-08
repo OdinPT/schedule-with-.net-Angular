@@ -10,25 +10,25 @@
  
 <div class ="form-inline">
     <label for="nomeContact"  id ="nomeContact"> Nome Contacto:</label>
-    <input class ="form-control" type="text" name="nomeContact" [(ngModel)]="user.nomeContact">
+    <input class ="form-control" type="text" name="nomeContact" [(ngModel)]="userx.nomeContact">
 </div>
 
 <div class ="form-inline">
   <label for="numeroContact"> Número: </label>
-  <input class ="form-control" type="text" name="numeroContact" [(ngModel)]="user.numeroContact">
+  <input class ="form-control" type="text" name="numeroContact" [(ngModel)]="userx.numeroContact">
 </div>
 
 <div class ="form-inline">
   <label for="emailContact"> E-mail: </label>
-  <input class ="form-control" type="text" name="emailContact" [(ngModel)]="user.emailContact">
+  <input class ="form-control" type="text" name="emailContact" [(ngModel)]="userx.emailContact">
 </div>
 
 <div class ="form-inline">
   <label for="dataAniversarioContact"> Aniversário </label>
-  <input class ="form-control" type="datetime" name="dataAniversarioContact" [(ngModel)]="user.dataAniversarioContact">
+  <input class ="form-control" type="datetime" name="dataAniversarioContact" [(ngModel)]="userx.dataAniversarioContact">
 </div>
 <button [disabled]="!editContact.dirty" class="btn btn-success btn-block">Save Changes</button>
 
-<button class="btn btn-success btn-block" (click)="delete(user.idContact)">Delete {{user.idContact}}</button> 
+<button class="btn btn-success btn-block" (click)="delete(userx.idContact)">Delete {{userx.idContact}}</button> 
 
 </form>

@@ -10,7 +10,7 @@ namespace Agenda.APi.Helpers
 		private const int MaxPageSize = 50;
 		public int PageNumber { get; set; } = 1;
 
-		private int pageSize = 10;
+		private int pageSize = 13;
 
 		public int PageSize
 		{

@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ContactosService } from '../_services/contactos.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { User } from '../_models/user';
+import { User } from '../_models/Contacto';
 
 @Component({
   selector: 'app-addcontacto',
