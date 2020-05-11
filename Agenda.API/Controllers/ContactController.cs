@@ -54,9 +54,9 @@ namespace Agenda.APi.Controllers
 
         [HttpGet("{name}")]
         public async Task<IActionResult> Getcontactx(string name)
-        {
+        { 
+            var user = await _repo.search(name.ToLower());
 
-            var user = await _repo.search(name);
             var userToReturn = _mapper.Map<IEnumerable <ContactForListDto>>(user);
 
             return Ok(userToReturn);

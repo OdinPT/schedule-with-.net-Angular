@@ -35,9 +35,8 @@ updateContact(userx: Contacto) {
   return this.http.put(this.baseUrl + 'contact/' + userx.idContact, userx);
 }
 
-getContactoSearch(model: any): Observable<Contacto[]> {
-  return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + model.find);
+getContactoSearch(model: any, userParams?): Observable<Contacto[]> {
+ return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + model.find);
 }
-
 
 }

@@ -32,28 +32,21 @@ export class MenuNavComponent implements OnInit {
     return !!token;
   }
 
-  getContactoSearch() {
-  console.log(this.model.find);
-  this.contactosService.getContactoSearch(this.model).subscribe(() => {
+  getContactoSearch(model: any) {
+  console.log(this.model);
+  this.contactosService.getContactoSearch(this.model).subscribe((users: Contacto[]) => {
+    this.users = users;
     this.alertify.success('Find');
-  
+
+  }, error => {
+    this.alertify.error(error);
   });
 }
+
 
  logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     console.log('logged out');
   }
-
-
-  loadContactos() {
-    this.contactosService.getContactos2().subscribe((users: Contacto[]) => {
-      this.users = users;
-    }, error => {
-        this.alertify.error(error);
-    });
 }
-
-}
- 
