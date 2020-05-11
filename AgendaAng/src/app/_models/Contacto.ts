@@ -1,10 +1,10 @@
+export class Contacto {
 
-export interface User {
-    idContact: number;
-    nomeContact?: string;
-    emailContact: string;
-    numeroContact: string;
-    idEmployee: number;
-    dataAniversarioContact: string;
-    
+  idContact: number;
+  nomeContact?: string;
+  emailContact: string;
+  numeroContact: string;
+  idEmployee: number;
+  dataAniversarioContact: string;
+
 }

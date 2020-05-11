@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ContactosService } from '../_services/contactos.service';
 import { AlertifyService } from '../_services/alertify.service';
-import { User } from '../_models/Contacto';
+import { Contacto } from '../_models/Contacto';
 import { ActivatedRoute } from '@angular/router';
 import { Pagination } from '../_models/pagination';
 
@@ -12,17 +12,19 @@ import { Pagination } from '../_models/pagination';
 })
 export class MembersComponent implements OnInit {
 @Input()
-  users: User[];
+  users: Contacto[];
   pagination: Pagination;
 
-  constructor(private contactosService: ContactosService, private alertify: AlertifyService, private route: ActivatedRoute) { }
+  constructor(private contactosService: ContactosService,
+              private alertify: AlertifyService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.loadContactos();
   }
 
   loadContactos() {
-    this.contactosService.getContactos2().subscribe((users: User[]) => {
+    this.contactosService.getContactos2().subscribe((users: Contacto[]) => {
       this.users = users;
     }, error => {
         this.alertify.error(error);

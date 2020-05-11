@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { ContactosService } from '../_services/contactos.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { User } from '../_models/Contacto';
+import { Contacto } from '../_models/Contacto';
 
 @Component({
   selector: 'app-addcontacto',
@@ -13,7 +13,7 @@ export class AddcontactoComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
   model: any = {};
   registerContactForm: FormGroup;
-  user: User;
+  user: Contacto;
   constructor(private contactoService: ContactosService, private alertify: AlertifyService, private fb: FormBuilder) { }
 
   ngOnInit() {

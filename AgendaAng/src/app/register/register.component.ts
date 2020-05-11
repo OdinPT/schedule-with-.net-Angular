@@ -15,8 +15,11 @@ export class RegisterComponent implements OnInit {
   model: any = {};
   employee: Employee;
   registerFom: FormGroup;
+
   constructor(private authService: AuthService,
-              private alertify: AlertifyService, private fb: FormBuilder, private router: Router) { }
+              private alertify: AlertifyService,
+              private fb: FormBuilder,
+              private router: Router) { }
 
   ngOnInit() {
     this.createRegisterForm();

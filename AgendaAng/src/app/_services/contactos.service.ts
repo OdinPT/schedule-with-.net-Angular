@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../_models/Contacto';
+import { Contacto } from '../_models/Contacto';
 import { PaginatedResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
 
@@ -11,17 +11,17 @@ import { map } from 'rxjs/operators';
 })
 export class ContactosService {
 baseUrl = environment.apiUrl;
-users: User
+users: Contacto;
 
 constructor( private http: HttpClient) { }
 
 
-getContactos2(): Observable<User[]> {
-  return this.http.get<User[]>(this.baseUrl + 'contact');
+getContactos2(): Observable<Contacto[]> {
+  return this.http.get<Contacto[]>(this.baseUrl + 'contact/');
 }
 
-getContacto(id): Observable<User> {
-  return this.http.get<User>(this.baseUrl + 'contactID/' + id);
+getContacto(id): Observable<Contacto> {
+  return this.http.get<Contacto>(this.baseUrl + 'contactID/' + id);
 }
 
 registerContacto(model: any) {
@@ -31,13 +31,12 @@ registerContacto(model: any) {
 registerDelete(idContact) {
   return this.http.delete(this.baseUrl + 'contact/' + idContact);
 }
-updateContact(userx: User) {
+updateContact(userx: Contacto) {
   return this.http.put(this.baseUrl + 'contact/' + userx.idContact, userx);
 }
 
-getContactoSearch(model: any): Observable<User[]> {
-  //console.log(model.find);
-  return this.http.get<User[]>(this.baseUrl + 'contact/' + model.find);
+getContactoSearch(model: any): Observable<Contacto[]> {
+  return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + model.find);
 }
 
 

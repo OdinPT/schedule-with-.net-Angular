@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from 'src/app/_models/Contacto';
+import { Contacto } from 'src/app/_models/Contacto';
 import { ContactosService } from 'src/app/_services/contactos.service';
 import { AlertifyService } from 'src/app/_services/alertify.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -11,11 +11,13 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./member-card.component.css']
 })
 export class MemberCardComponent implements OnInit {
-  @Input() user: User;
+  @Input() user: Contacto;
   model: any = {};
-  users: User[];
+  users: Contacto[];
 
- constructor(private contactosService: ContactosService, private alertify: AlertifyService, private router: Router,
+ constructor(private contactosService: ContactosService, 
+             private alertify: AlertifyService,
+             private router: Router,
              private route: ActivatedRoute) { }
 
   ngOnInit() {}
