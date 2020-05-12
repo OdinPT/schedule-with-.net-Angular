@@ -15,9 +15,12 @@ users: Contacto;
 
 constructor( private http: HttpClient) { }
 
-
 getContactos2(): Observable<Contacto[]> {
   return this.http.get<Contacto[]>(this.baseUrl + 'contact/');
+}
+
+getContactos3(id): Observable<Contacto[]> {
+  return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + id);
 }
 
 getContacto(id): Observable<Contacto> {
@@ -25,7 +28,6 @@ getContacto(id): Observable<Contacto> {
 }
 
 registerContacto(model: any) {
-
   return this.http.post(this.baseUrl + 'contact/register', model);
 }
 registerDelete(idContact) {
@@ -35,8 +37,8 @@ updateContact(userx: Contacto) {
   return this.http.put(this.baseUrl + 'contact/' + userx.idContact, userx);
 }
 
-getContactoSearch(model: any, userParams?): Observable<Contacto[]> {
- return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + model.find);
+getContactoSearch(idx): Observable<Contacto[]> {
+ return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + idx);
 }
 
 }

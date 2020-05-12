@@ -37,8 +37,13 @@ export class MemberDetailComponent implements OnInit {
 
 
 updateContact() {
+
+  const aValue = localStorage.getItem('userid');
+  const a = + aValue;
+  console.log(a);
+
   console.log(this.contactx);
-  this.contactx.idEmployee = 1;
+  this.contactx.idEmployee = a;
   this.contactosService.updateContact(this.contactx).subscribe(next => {
   this.alertify.success('Atualizado');
   }, error => {

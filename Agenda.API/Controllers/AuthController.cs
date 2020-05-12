@@ -71,7 +71,7 @@ namespace Agenda.APi.Controllers
                 };
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var token = tokenHandler.CreateToken(tokenDescriptor);
-                var userid = userFromRepo.IdEmp.ToString();
+                var userid = userFromRepo.IdEmp;
 
             return Ok(new { token = tokenHandler.WriteToken(token), userid }); ;
             

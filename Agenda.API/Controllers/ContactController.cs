@@ -32,6 +32,7 @@ namespace Agenda.APi.Controllers
         {
             contactToRegisterDto.NomeContact = contactToRegisterDto.NomeContact.ToLower();
 
+
             var contacttoCreate  = new Contact
             {
                NomeContact = contactToRegisterDto.NomeContact
@@ -42,6 +43,7 @@ namespace Agenda.APi.Controllers
             return StatusCode(201);
         }
 
+       
         [HttpGet]
         public async Task<IActionResult> GetContacts()
         {
@@ -49,18 +51,42 @@ namespace Agenda.APi.Controllers
             var usersToReturn = _mapper.Map<IEnumerable<ContactForListDto>>(users);
             return Ok(usersToReturn);
         }
+       
 
+        [HttpGet("{myString}")]
+        public async Task<IActionResult> GetContactsbyId( string myString)
+        {
+            // se passar numero retorna true se for string retorna false
 
+            double num;
+            bool isNumber = double.TryParse(myString, out num);
 
-        [HttpGet("{name}")]
-        public async Task<IActionResult> Getcontactx(string name)
-        { 
-            var user = await _repo.search(name.ToLower());
+            if (isNumber)
+            {
+                //string is number
+                int myInt = int.Parse(myString);
 
-            var userToReturn = _mapper.Map<IEnumerable <ContactForListDto>>(user);
+                var user = await _repo.search4Id(myInt);
 
-            return Ok(userToReturn);
+                var userToReturn = _mapper.Map<IEnumerable<ContactForListDto>>(user);
+               return Ok(userToReturn);
+            }
+            else
+            {
+                //string is not a number
+                var user = await _repo.search(myString.ToLower());
+
+                var userToReturn = _mapper.Map<IEnumerable<ContactForListDto>>(user);
+
+                return Ok(userToReturn);
+            }
         }
+
+    
+
+
+
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateContacto(int id, ContactToUpdateDto contactToUpdateDto)

@@ -13,7 +13,7 @@ import { Pagination } from '../_models/pagination';
 export class MembersComponent implements OnInit {
 @Input()
   users: Contacto[];
-  pagination: Pagination;
+  userx: Contacto;
 
   constructor(private contactosService: ContactosService,
               private alertify: AlertifyService,
@@ -24,7 +24,11 @@ export class MembersComponent implements OnInit {
   }
 
   loadContactos() {
-    this.contactosService.getContactos2().subscribe((users: Contacto[]) => {
+    const aValue = localStorage.getItem('userid');
+    const a = + aValue;
+    console.log(a);
+
+    this.contactosService.getContactos3(a).subscribe((users: Contacto[]) => {
       this.users = users;
     }, error => {
         this.alertify.error(error);

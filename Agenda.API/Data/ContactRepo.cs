@@ -60,8 +60,18 @@ namespace Agenda.APi.Data
 
             return users;
         }
-       
-         public async Task<IEnumerable<Contact>> Getcontacts()
+
+        public async Task<IEnumerable<Contact>> search4Id(int id) // find by id
+        {
+            var users = await _context.contacts.Where(u => u.IdEmployee == id).ToListAsync();
+
+            await _context.SaveChangesAsync();
+
+            return users;
+        }
+
+
+        public async Task<IEnumerable<Contact>> Getcontacts()
         {
             var users = await _context.contacts.Include(p => p.Photos).ToListAsync();
             return users;

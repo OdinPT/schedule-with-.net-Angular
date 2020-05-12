@@ -23,6 +23,8 @@ namespace Agenda.APi.Data
 
         Task<IEnumerable<Contact>> search(string name);
 
+        Task<IEnumerable<Contact>> search4Id(int id);
+
         Task<Contact> RegisterContact(Contact con, string NomeContact, string EmailContact, string NumeroContact, 
                                             int IdEmployee, string DataAniversarioContact);
 

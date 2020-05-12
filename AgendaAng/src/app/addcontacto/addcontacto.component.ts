@@ -21,16 +21,22 @@ export class AddcontactoComponent implements OnInit {
   }
 
   createRegisterForm() {
+    const aValue = localStorage.getItem('userid');
+    const a = + aValue;
+    console.log(a);
+
     this.registerContactForm = this.fb.group({
       nomeContact: ['', Validators.required],
       emailContact: ['', Validators.required],
-      IdEmployee: [1, ],
+      IdEmployee: [a, ],
       numeroContact: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
       dataAniversarioContact: ['', ],
     });
  }
 
 registerContact() {
+//this.user.idEmployee = localStorage.getItem('userid');
+
  if (this.registerContactForm.valid) {
    this.user = Object.assign({}, this.registerContactForm.value);
    this.contactoService.registerContacto(this.user).subscribe(() => {
