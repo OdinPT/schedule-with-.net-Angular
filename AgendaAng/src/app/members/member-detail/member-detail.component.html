@@ -25,10 +25,20 @@
 
 <div class ="form-inline">
   <label for="dataAniversarioContact"> Aniversário </label>
-  <input class ="form-control" type="datetime" name="dataAniversarioContact" [(ngModel)]="contactx.dataAniversarioContact">
+  <input class ="form-control" type="date" name="dataAniversarioContact" [(ngModel)]="contactx.dataAniversarioContact">
 </div>
+
+<div class ="form-inline">
+  <label for="moradaContacto"> Morada do Contacto: </label>
+  <input class ="form-control" type="text" name="moradaContacto"  [(ngModel)]="contactx.moradaContacto">
+</div>
+
+<div class ="form-inline">
+  <label for="notaContacto"> Notas do Contacto: </label>
+  <textarea class ="form-control" type="text" name="notaContacto" rows="4" cols="50" [(ngModel)]="contactx.notaContacto"> </textarea>
+</div>
+
 <button [disabled]="!editContact.dirty" class="btn btn-success btn-block">Save Changes</button>
 
 <button class="btn btn-success btn-block" (click)="delete(contactx.idContact)">Delete {{contactx.idContact}}</button> 
-
 </form>

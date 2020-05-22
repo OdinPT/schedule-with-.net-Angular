@@ -31,12 +31,12 @@ export class AddcontactoComponent implements OnInit {
       IdEmployee: [a, ],
       numeroContact: ['', [Validators.required, Validators.minLength(9), Validators.maxLength(12)]],
       dataAniversarioContact: ['', ],
+      moradaContacto: ['', ],
+      notaContacto: ['', ],
     });
  }
 
 registerContact() {
-//this.user.idEmployee = localStorage.getItem('userid');
-
  if (this.registerContactForm.valid) {
    this.user = Object.assign({}, this.registerContactForm.value);
    this.contactoService.registerContacto(this.user).subscribe(() => {

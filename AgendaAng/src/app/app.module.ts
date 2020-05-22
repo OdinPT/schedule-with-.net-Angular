@@ -19,7 +19,6 @@ import { appRoutes } from './routes';
 import { MembersComponent } from './members/members.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { ContactosService } from './_services/contactos.service';
-import { MemberListComponent } from './members/member-list/member-list.component';
 import { AddcontactoComponent } from './addcontacto/addcontacto.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
@@ -28,6 +27,9 @@ import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 
 import {  NgxPaginationModule } from 'ngx-pagination';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { TopbarNotesComponent } from './Notes/topbar-notes/topbar-notes.component';
+import { AppNotesCardComponent } from './Notes/topbar-notes/app-notes-card/app-notes-card.component';
+import { FormregNotesComponent } from './Notes/topbar-notes/formregNotes/formregNotes.component';
 
 
 export function tokenGetter() {
@@ -42,11 +44,13 @@ export function tokenGetter() {
       HomeComponent,
       MenuNavComponent,
       MembersComponent,
-      MemberListComponent,
       MemberCardComponent,
       AddcontactoComponent,
       MemberCardComponent,
-      MemberDetailComponent
+      MemberDetailComponent,
+      TopbarNotesComponent,
+      AppNotesCardComponent,
+      FormregNotesComponent
    ],
    imports: [
 	 BrowserModule,
@@ -73,6 +77,7 @@ export function tokenGetter() {
       ContactosService,
       PreventUnsavedChanges,
       MemberDetailResolver,
+     
    ],
    bootstrap: [
       AppComponent

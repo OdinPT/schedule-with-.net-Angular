@@ -1,12 +1,28 @@
-<p></p>
-<button type="button" style="border-color: brown;" class="btn btn-secondary" [routerLink]="['/form']">Registar novo contacto</button>
-<p></p>
+<h1 style="color: coral; font-size:xxx-large; padding-top: 20px; padding-bottom: 20px;"><b>Lista de Contactos</b></h1>
 
+<div class="form-inline" style="padding: 10px; padding-left: 10px;  display: inline-block;">
+
+  <form class="form-inline" style="padding-left: 20px; padding: 10px;  display: inline-block;"
+   (ngSubmit)="getContactoSearch()">
+
+    <button type="button" class="btn btn-outline-success my-2 my-sm-0"
+     [routerLink]="['/form']">Registar novo contacto</button>
+
+    <input class="form-control mr-sm-2" type="text" placeholder="Search" style="padding: 20px; padding-left: 30px;" [(ngModel)]="search.find" id ="find" name="find">
+    <button class="btn btn-outline-success my-2 my-sm-0"  type="register">Search</button>
+  </form>
+  
+  <form class="form-inline" style="padding: -10px; display: inline;" (ngSubmit)="reset()">
+    <button class="btn btn-outline-success my-2 my-sm-0"  type="clear"> Limpar     </button>
+  </form>
+ </div>
+ <p></p><p></p>
+  
+  
 <div class="containe mt-6 ml-6 mr-5">
   <div class="row">
     <div class="col-lg-2 mt2 col-md-3 " *ngFor="let user of users">
-      <app-member-card [user]="user"></app-member-card>
-      
+      <app-member-card [user]="user"></app-member-card> 
     </div>   
   </div>
   

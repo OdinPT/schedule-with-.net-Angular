@@ -1,46 +1,42 @@
 .formedit {
-    width:600px;
-    max-width: 200%;
+    align-items: center;
+    width: 560px;
     padding: 20px;
-    
     margin-top: 5px;
-
     border: 2px solid red;
     border-style: dashed;
+    align:center;
 }
 
 input {
     margin-top: 10px;
     margin:5px;
-    height:20px;
-    background-color: #f5f5f5;
+    font-size: 13px;
+   
 }
-button{
+btn{
     margin-top: 15px;
     padding: 5;
     border: 2px;
+    widows: 20px;
 }
 p {
-font-size: 20px;
+font-size: 22px;
 color: orange;
 font-weight:bold;
 }
 
-.alert {
-    position: relative;
-    padding: .75rem 1.25rem;
-    margin-bottom: 1rem;
-    border: 1px solid transparent;
-    border-radius: .25rem;
-}
-
-.alert-dark {
-    color: #1b1e21;
-    background-color: #d6d8d9;
-    border-color: #1373d4;
-}
 textarea {
     margin-top: 10px;
     margin:5px;
     background-color: #f5f5f5;
+}
+
+.form-inline .form-control {
+    font-style: initial;
+    width: 480px;
+}
+.form-inline .button {
+    font-style: initial;
+    width: 480px;
 }

@@ -1,11 +1,13 @@
-<form #redForm="ngForm" class="formreg" #registerForm="ngForm" (ngSubmit)="registercontact()">
-  <div class="shadow p-3 mb-5 bg-white rounded" style="margin-right: 5px;  margin-top: 5px; height: 230px; position: static; border: 3px solid rgb(232, 233, 231);">
+<form #redForm="ngForm" class="formreg" #registerForm="ngForm" >
+  <div class="shadow p-3 mb-5 bg-white rounded"
+     style=" position: static;
+                                           border: 3px solid rgb(232, 233, 231);">
     <div class="card-body" >
       <p class="card-title"> <b> {{user.nomeContact}} </b> </p>
-      <!--<p class="card-text"> e-mail: {{user.emailContact}} </p> -->
-      <p class="card-text"> Telefone: {{user.numeroContact}} </p>
+      <!--<p class="card-text"> e-mail: {{user.emailContact}} </p>
+      <p class="card-text"> Telefone: {{user.numeroContact}} </p> -->
       
-      <a class="btn btn-primary" [routerLink]="['/contactos/',user.idContact]">Ver Contacto</a>
+      <a class="btn btn-primary"  [routerLink]="['/contactos/',user.idContact]">Ver Contacto</a>
       
     </div>
 </div>

@@ -1,35 +1,37 @@
-get contactos
-
-http://localhost:5000/api/contact/
-
-_
-
-get contacts by id
-http://localhost:5000/api/contact/19
-
-__
-Delete
-http://localhost:5000/api/contact/19
-
-__
-put
-
-http://localhost:5000/api/contact/20
-{
-    "nomeContact": "ALberto_asa",
     "emailContact": "at@gmail.com",
     "numeroContact": "2220",
     "idEmployee": "1",
     "dataAniversarioContact": "31-5-1950"
 }
-___
-POST
-http://localhost:5000/api/contact/register
+Post 			Login
+http://localhost:5000/api/auth/login
+
 {
-    "nomeContact": "push",
-    "emailContact": "at@gmail.com",
-    "numeroContact": "2220",
-    "idEmployee": "1",
-    "dataAniversarioContact": "31-5-1950"
+	"username": "lidia",
+	"password": "lidia"
 
 }
+
+GET				//retorna contactos do utilizador cujo id= 13
+http://localhost:5000/api/contact/13
+
+[
+    {
+        "idContact": 83,
+        "nomeContact": "leandro filipe",
+        "emailContact": "leandrofilipe@gmail.com",
+        "numeroContact": "123133332",
+        "idEmployee": 13,
+        "dataAniversarioContact": "2002-04-10",
+        "photosUrl": null
+    }
+]
+
+GET				//retorna contactos do utilizador cujo nome seja camila
+http://localhost:5000/api/contact/camila
+
+[
+    {
+        .....
+    }
+]

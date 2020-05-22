@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class MemberCardComponent implements OnInit {
   @Input() user: Contacto;
-  model: any = {};
+  //model: any = {};
   users: Contacto[];
 
  constructor(private contactosService: ContactosService, 
@@ -21,13 +21,6 @@ export class MemberCardComponent implements OnInit {
              private route: ActivatedRoute) { }
 
   ngOnInit() {}
-
-  registercontact() {
-    this.contactosService.registerContacto(this.model).subscribe(() => {
-      this.alertify.success('Registration successful');
-    }, error => {
-      this.alertify.error(error);
-    });
-  }
-
+  
+  
 }

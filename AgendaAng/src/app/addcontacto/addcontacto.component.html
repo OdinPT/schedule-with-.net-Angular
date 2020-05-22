@@ -39,6 +39,17 @@
       autofocus="" 
       formControlName="dataAniversarioContact">  
 </div>
+
+<div class ="form-inline">
+  <label for="moradaContacto"> Morada do Contacto: </label>
+  <input class ="form-control" type="text" name="moradaContacto" formControlName="moradaContacto"> 
+</div>
+
+<div class ="form-inline">
+  <label for="notaContacto"> Notas do Contacto: </label>
+  <textarea class ="form-control" type="text" name="notaContacto" rows="4" cols="50" formControlName="notaContacto"> </textarea>
+</div>
+
   <button  class="btn btn-lg btn-primary btn-block" [disabled]="!registerContactForm.valid" type="submit">Registar Contacto</button>
 
 </form>

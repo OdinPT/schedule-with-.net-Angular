@@ -3,10 +3,10 @@
 }
 .form-inline .form-control {
     padding: 20px;
-    padding-right: -30px;
+    padding-right: 30px;
     padding-left: 30px;
     font-style: initial;
-    width: 480px;
+    width: 680px;
 }
 .form-inline .button {
     padding: 20px;

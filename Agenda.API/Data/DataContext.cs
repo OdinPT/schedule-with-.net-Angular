@@ -14,7 +14,8 @@ namespace Agenda.APi.Data
         public DbSet<Value> values { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Contact> contacts { get; set; }
-
         public DbSet<Foto> Fotos { get; set; }
+
+        public DbSet<Nota> Notacoes { get; set; }
     }
 }

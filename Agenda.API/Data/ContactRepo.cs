@@ -60,6 +60,14 @@ namespace Agenda.APi.Data
 
             return users;
         }
+        public async Task<IEnumerable<Contact>> search2(string name) // find
+        {
+            var users = await _context.contacts.Where(u => !string.IsNullOrWhiteSpace(name) ? u.NomeContact.Contains(name.Trim()) : true).ToListAsync();
+
+            await _context.SaveChangesAsync();
+
+            return users;
+        }
 
         public async Task<IEnumerable<Contact>> search4Id(int id) // find by id
         {
@@ -70,19 +78,53 @@ namespace Agenda.APi.Data
             return users;
         }
 
-
         public async Task<IEnumerable<Contact>> Getcontacts()
         {
             var users = await _context.contacts.Include(p => p.Photos).ToListAsync();
             return users;
         }
-       
+
+        public async Task<IEnumerable<Nota>> GetNotas(int id)
+        {
+            var users = await _context.Notacoes.Where(u => u.Id_Func == id).ToListAsync();
+
+            await _context.SaveChangesAsync();
+
+            return users;
+        }
 
         public async Task<bool> SaveAll()
         {
-            return await _context.SaveChangesAsync() > 0;
+           return await _context.SaveChangesAsync() > 0;
         }
 
-       
+        public  async Task<Nota> RegisterNotas(Nota con, string TituloNota, string DescNota, int Id_Func)
+        {
+            con.TituloNota = TituloNota;
+            con.DescNota = DescNota;
+            con.Id_Func = Id_Func;
+            
+            await _context.Notacoes.AddAsync(con);
+            await _context.SaveChangesAsync();
+
+            return con;
+        }
+      
+        public async Task<Nota> GetNota(int id)
+        {
+            var users = await _context.Notacoes.Include(p => p.Photos).FirstOrDefaultAsync(u => u.IdNota == id);
+          
+            return users;
+        }
+
+        public async Task<IEnumerable<Nota>> searchNota(string name) // find note
+        {
+            var users = await _context.Notacoes.Where(u => !string.IsNullOrWhiteSpace(name) ? u.TituloNota.Contains(name.Trim()) : true).ToListAsync();
+
+            await _context.SaveChangesAsync();
+
+            return users;
+        }
+
     }
 }

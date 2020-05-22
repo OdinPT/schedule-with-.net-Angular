@@ -6,6 +6,8 @@ import { AlertifyService } from '../_services/alertify.service';
 import { Contacto } from '../_models/Contacto';
 import { FormGroup } from '@angular/forms';
 import { find } from 'rxjs/operators';
+import { MemberDetailResolver } from '../_resolvers/member-detail.resolver';
+import { MembersComponent } from '../members/members.component';
 
 @Component({
   selector: 'app-menu-nav',
@@ -13,7 +15,8 @@ import { find } from 'rxjs/operators';
   styleUrls: ['./menu-nav.component.css']
 })
 export class MenuNavComponent implements OnInit {
-  model: any = {};
+ // model: any = {};
+ search: any = {};
   users: Contacto[];
 
   testex: FormGroup;
@@ -32,16 +35,6 @@ export class MenuNavComponent implements OnInit {
     return !!token;
   }
 
-  getContactoSearch(model: any) {
-  console.log(this.model);
-  this.contactosService.getContactoSearch(this.model).subscribe((users: Contacto[]) => {
-    this.users = users;
-    this.alertify.success('Find');
-
-  }, error => {
-    this.alertify.error(error);
-  });
-}
 
 
  logout() {

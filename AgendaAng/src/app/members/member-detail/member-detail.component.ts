@@ -47,7 +47,7 @@ updateContact() {
   this.contactosService.updateContact(this.contactx).subscribe(next => {
   this.alertify.success('Atualizado');
   }, error => {
-    this.alertify.error(error);
+    //this.alertify.error(error);
   });
 }
 

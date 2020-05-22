@@ -1,0 +1,29 @@
+<h1 style="color: coral; font-size:xxx-large; padding-top: 20px; padding-bottom: 20px;"><b>Notas</b></h1>
+
+<form class="form-inline" style="padding-left: 20px; padding: 10px; padding-left: 10px;  display: inline-block;"
+ (ngSubmit)="getContactoSearch()">
+
+  <button type="button" style="border-color: brown;" class="btn btn-secondary" [routerLink]="['/formnotes']">
+    Registar  Nota</button>
+  
+  <input class="form-control mr-sm-2" type="text" placeholder="Search" [(ngModel)]="search.find" id ="find" name="find">
+  <button class="btn btn-outline-success my-2 my-sm-0"  type="register">Search</button>
+
+  <form class="form-inline" style="padding: -10px; display: inline;" (ngSubmit)="reset()">
+    <button class="btn btn-outline-success my-2 my-sm-0"  type="clear"> Limpar     </button>
+  </form>
+
+</form>
+<p></p>
+
+<div class="containe mt-6 ml-6 mr-5" style="padding-top: 30px; padding-bottom: 30px; ">
+    <div class="row">
+      
+      <div class="col-lg-2 mt2 col-md-3 " *ngFor="let user of users">
+        <app-app-notes-card [user]="user"></app-app-notes-card>
+       
+      </div>   
+    </div>
+    
+  </div>
+  

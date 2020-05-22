@@ -25,8 +25,8 @@ namespace Agenda.APi.Controllers
             _repo = repo;
             _mapper = mapper;
         }
-
-
+        //retorna registo selecionado
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> find(int id)
         {
@@ -35,5 +35,6 @@ namespace Agenda.APi.Controllers
 
           return Ok(userToReturn);
         }
+        
     }
 }

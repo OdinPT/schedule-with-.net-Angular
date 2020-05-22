@@ -1,10 +1,9 @@
 .formreg {
-    width:50%;
+    width:500px;
     max-width: 100%;
     padding: 20px;
     align:center;
     margin-top: 5px;
-
   
 }
 
@@ -23,4 +22,13 @@ font-weight:bold;
 }
 p {
     display: inline-block;
+}
+
+.form-inline .form-control {
+    font-style: initial;
+    width: 480px;
+}
+.form-inline .button {
+    font-style: initial;
+    width: 480px;
 }

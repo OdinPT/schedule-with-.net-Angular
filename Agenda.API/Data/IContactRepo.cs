@@ -27,7 +27,12 @@ namespace Agenda.APi.Data
 
         Task<Contact> RegisterContact(Contact con, string NomeContact, string EmailContact, string NumeroContact, 
                                             int IdEmployee, string DataAniversarioContact);
+        Task<IEnumerable<Nota>> GetNotas(int id);
 
+        Task<Nota> RegisterNotas(Nota con, string TituloNota, string DescNota, int Id_Func);
 
+        Task<Nota> GetNota(int id);
+
+        Task<IEnumerable<Nota>> searchNota(string name);
     }
 }

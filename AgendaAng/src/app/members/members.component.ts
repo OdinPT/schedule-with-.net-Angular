@@ -13,26 +13,45 @@ import { Pagination } from '../_models/pagination';
 export class MembersComponent implements OnInit {
 @Input()
   users: Contacto[];
-  userx: Contacto;
+  //userx: Contacto;
+  search: any = {};
+
 
   constructor(private contactosService: ContactosService,
               private alertify: AlertifyService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.loadContactos();
+    const aValue = localStorage.getItem('userid');
+    
+    this.loadContactos(aValue);
+    
   }
 
-  loadContactos() {
-    const aValue = localStorage.getItem('userid');
-    const a = + aValue;
-    console.log(a);
-
-    this.contactosService.getContactos3(a).subscribe((users: Contacto[]) => {
+  loadContactos(aValue) {
+    this.contactosService.getContactoSearch(aValue).subscribe((users: Contacto[]) => {
       this.users = users;
     }, error => {
         this.alertify.error(error);
     });
 }
+
+getContactoSearch() {
+
+  this.contactosService.getSearch(this.search.find).subscribe((users: Contacto[]) => {
+    this.alertify.success('Encontrado');
+    this.users = users;
+    this.loadContactos(this.search.find);
+  }, error => {
+      this.alertify.error(error);
+  });
+}
+
+reset() {
+  const aValue = localStorage.getItem('userid');
+  this.loadContactos(aValue);
+
+}
+
 
 }

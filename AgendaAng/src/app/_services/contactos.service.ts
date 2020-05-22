@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Contacto } from '../_models/Contacto';
 import { PaginatedResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
+import { Nota } from '../_models/Nota';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,6 @@ baseUrl = environment.apiUrl;
 users: Contacto;
 
 constructor( private http: HttpClient) { }
-
-getContactos2(): Observable<Contacto[]> {
-  return this.http.get<Contacto[]>(this.baseUrl + 'contact/');
-}
 
 getContactos3(id): Observable<Contacto[]> {
   return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + id);
@@ -33,6 +30,7 @@ registerContacto(model: any) {
 registerDelete(idContact) {
   return this.http.delete(this.baseUrl + 'contact/' + idContact);
 }
+
 updateContact(userx: Contacto) {
   return this.http.put(this.baseUrl + 'contact/' + userx.idContact, userx);
 }
@@ -40,5 +38,28 @@ updateContact(userx: Contacto) {
 getContactoSearch(idx): Observable<Contacto[]> {
  return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + idx);
 }
+
+getSearch(word): Observable<Contacto[]> {
+  return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + word);
+ }
+
+ /*
+getNotas(id): Observable<Nota[]> {
+  return this.http.get<Nota[]>(this.baseUrl + 'todasnotas/' + id);
+}
+*/
+
+registerNotas(model: any) {
+  return this.http.post(this.baseUrl + 'todasnotas/register', model);
+}
+
+DeleteNota(idContact) {
+  return this.http.delete(this.baseUrl + 'todasnotas/' + idContact);
+}
+
+getSearchNotes(word): Observable<Nota[]> {
+  return this.http.get<Nota[]>(this.baseUrl + 'todasnotas/' + word);
+ }
+
 
 }

@@ -1,4 +1,3 @@
-
 .card:hover img{
     transform: scale(1.2, 1.2);
     transition-duration: 500ms;
@@ -27,14 +26,17 @@ font-size: 12px;
 .btn-primary {
     border:2px;
     margin:2px;
+    padding: 10px;
     color: #fff;
-    background-color: #3FB618;
-    border-color: #3FB618;
+    background-color: rgb(86, 85, 88);
+    border-color:white;
 }
 
 .card-title {
+   
     color:rgb(245, 24, 24);
     font-family: Arial;
     font-size: large;
     text-align: center;
 }
+
