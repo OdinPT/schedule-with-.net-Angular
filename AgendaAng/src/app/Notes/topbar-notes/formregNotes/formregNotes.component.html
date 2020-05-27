@@ -13,17 +13,13 @@
   </div>
 
   <div class ="form-group">
-    <input type="text" 
-      class="form-control is-invalid"  
-      [ngClass]="{'is-invalid': registerNoteForm.get('descNota').errors 
-                                && registerNoteForm.get('descNota').touched}"
-      placeholder=" Nota: "  
-      autofocus="" 
-      formControlName="descNota"> 
+   
+      <textarea class ="form-control is-invalid" type="text" name="notaContacto" rows="4" cols="50" [ngClass]="{'is-invalid': registerNoteForm.get('descNota').errors 
+      && registerNoteForm.get('descNota').touched}" formControlName="descNota"> </textarea>
       <div class="invalid-feedback">Insira uma nota a guardar.</div>
-  </div>
+
 
 
   <button  class="btn btn-lg btn-primary btn-block"  type="submit">Registar Contacto</button>
-
+</div>
 </form>

@@ -21,10 +21,9 @@ namespace Agenda.APi.Helpers
 
             CreateMap <Contact, ContactForListDto>();
             CreateMap<Nota, NotasForListDTO>();
-            
+            CreateMap<Nota, NotaForDetailedDto>();
 
-
-
+            CreateMap<NoteToUpdateDto, Nota > ();
         }
     }
 }

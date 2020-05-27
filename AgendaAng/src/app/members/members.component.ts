@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { ContactosService } from '../_services/contactos.service';
 import { AlertifyService } from '../_services/alertify.service';
 import { Contacto } from '../_models/Contacto';
@@ -16,7 +16,7 @@ export class MembersComponent implements OnInit {
   //userx: Contacto;
   search: any = {};
 
-
+  @ViewChild('form') form;
   constructor(private contactosService: ContactosService,
               private alertify: AlertifyService,
               private route: ActivatedRoute) { }
@@ -39,18 +39,18 @@ export class MembersComponent implements OnInit {
 getContactoSearch() {
 
   this.contactosService.getSearch(this.search.find).subscribe((users: Contacto[]) => {
-    this.alertify.success('Encontrado');
+    this.alertify.success('Registo Encontrado');
     this.users = users;
     this.loadContactos(this.search.find);
   }, error => {
-      this.alertify.error(error);
+      this.alertify.error('Não foi possive encontrar');
   });
 }
 
 reset() {
   const aValue = localStorage.getItem('userid');
   this.loadContactos(aValue);
-
+ 
 }
 
 

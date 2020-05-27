@@ -30,7 +30,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TopbarNotesComponent } from './Notes/topbar-notes/topbar-notes.component';
 import { AppNotesCardComponent } from './Notes/topbar-notes/app-notes-card/app-notes-card.component';
 import { FormregNotesComponent } from './Notes/topbar-notes/formregNotes/formregNotes.component';
-
+import { NoteDetailResolver } from './_resolvers/note-detail.resolver';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -50,7 +50,8 @@ export function tokenGetter() {
       MemberDetailComponent,
       TopbarNotesComponent,
       AppNotesCardComponent,
-      FormregNotesComponent
+      FormregNotesComponent,
+   
    ],
    imports: [
 	 BrowserModule,
@@ -77,7 +78,8 @@ export function tokenGetter() {
       ContactosService,
       PreventUnsavedChanges,
       MemberDetailResolver,
-     
+      NoteDetailResolver,
+    
    ],
    bootstrap: [
       AppComponent

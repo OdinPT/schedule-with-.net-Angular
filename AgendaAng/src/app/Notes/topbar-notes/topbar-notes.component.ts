@@ -11,7 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TopbarNotesComponent implements OnInit {
   @Input()
-  users: Nota[];
+  note: Nota[];
+  notas: Nota;
   //userx: Contacto;
   search: any = {};
 
@@ -25,8 +26,8 @@ export class TopbarNotesComponent implements OnInit {
   }
 
   loaCnotas(aValue) {
-    this.contactosService.getSearchNotes(aValue).subscribe((users: Nota[]) => {
-      this.users = users;
+    this.contactosService.getSearchNotes(aValue).subscribe((notes: Nota[]) => {
+      this.note = notes;
     }, error => {
         this.alertify.error(error);
     });
@@ -34,9 +35,9 @@ export class TopbarNotesComponent implements OnInit {
 
 getContactoSearch() {
 
-  this.contactosService.getSearchNotes(this.search.find).subscribe((users: Nota[]) => {
+  this.contactosService.getSearchNotes(this.search.find).subscribe((notes: Nota[]) => {
     this.alertify.success('Pesquisa efetuada');
-    this.users = users;
+    this.note = notes;
     this.loaCnotas(this.search.find);
   }, error => {
       //this.alertify.error(error);
@@ -49,6 +50,23 @@ reset() {
 
 }
 
+delete(idContact) {
+  const aValue = localStorage.getItem('userid');
+
+  this.contactosService.DeleteNota(idContact).subscribe(() => {
+    this.alertify.success('delete successful');
+    this.loaCnotas(aValue);
+  });
+}
 
 
+updateContact(Nota) {
+  this.contactosService.updateNota(Nota).subscribe(next => {
+  this.alertify.success('Atualizado');
+  }, error => {
+    this.alertify.error('campos não atualizados');
+  });
+  
+}
+  
 }

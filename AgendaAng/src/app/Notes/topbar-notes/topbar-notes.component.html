@@ -18,12 +18,17 @@
 
 <div class="containe mt-6 ml-6 mr-5" style="padding-top: 30px; padding-bottom: 30px; ">
     <div class="row">
+   
+          <div class="col-lg-2 mt2 col-md-3 " *ngFor="let notes of note">   
       
-      <div class="col-lg-2 mt2 col-md-3 " *ngFor="let user of users">
-        <app-app-notes-card [user]="user"></app-app-notes-card>
-       
-      </div>   
-    </div>
+            <app-app-notes-card [nota]="notes"> </app-app-notes-card>
+      
+          <button  [routerLink]="['/topnotas']" (click)="delete(notes.idNota)" > ==> Delete {{notes.idNota}}</button>
+            <button class="btn btn-success btn-block" (click)="updateContact(this.notes)"> Update {{this.notes.idNota}} </button>
+      <!-- colocar butão do update aqui tbm se der-->  
+        </div>        
     
-  </div>
+    
+    </div>    
+</div>
   

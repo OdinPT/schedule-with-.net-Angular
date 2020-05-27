@@ -55,6 +55,7 @@ namespace Agenda.APi.Controllers
             }
         }
 
+        //return  selected note
 
         [HttpPost("register")]
         public async Task<IActionResult> register(NotasToRegisterDto notasToRegisterDto)
@@ -68,6 +69,20 @@ namespace Agenda.APi.Controllers
             var createdCont = await _repo.RegisterNotas(NotaCreate, notasToRegisterDto.TituloNota, notasToRegisterDto.DescNota,
                                                           notasToRegisterDto.Id_Func);
             return StatusCode(201);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Updatenota(int id, NoteToUpdateDto noteToUpdateDto)
+        {
+            var notefromRepo = await _repo.GetNota(id);
+
+            _mapper.Map(noteToUpdateDto, notefromRepo);
+
+            if (await _repo.SaveAll())
+                return NoContent();
+
+            //return Ok("teste");
+            throw new Exception($"Updating note {id} failed on save");
         }
 
         [HttpDelete("{id}")]

@@ -8,12 +8,16 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { TopbarNotesComponent } from './Notes/topbar-notes/topbar-notes.component';
 import { FormregNotesComponent } from './Notes/topbar-notes/formregNotes/formregNotes.component';
+import { NoteDetailResolver } from './_resolvers/note-detail.resolver';
+
 
 export const appRoutes: Routes = [
     { path: 'contactos', component: MembersComponent, canActivate: [AuthGuard]},
-    { path: 'contactos/:id', component: MemberDetailComponent, resolve : {user: MemberDetailResolver}},
+    { path: 'contactos/:id', component: MemberDetailComponent, resolve : {user: MemberDetailResolver}}, 
+                                        // não esquecer usar authguard
 
-    { path: 'TopNotas', component: TopbarNotesComponent},
+    { path: 'topnotas', component: TopbarNotesComponent,  canActivate: [AuthGuard]},
+
     { path: 'form', component: AddcontactoComponent},
     { path: 'formnotes', component: FormregNotesComponent},
     { path: '**', redirectTo: 'contactos', pathMatch: 'full'},

@@ -10,9 +10,9 @@ import { Nota } from 'src/app/_models/Nota';
   styleUrls: ['./app-notes-card.component.css']
 })
 export class AppNotesCardComponent implements OnInit {
-  @Input() user: Nota;
+  @Input() nota: Nota;
   //model: any = {};
-  users: Nota[];
+  note: Nota[];
   
 
   constructor(private contactosService: ContactosService, 
@@ -21,14 +21,11 @@ export class AppNotesCardComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    
+    this.route.data.subscribe(data => {
+      this.note = data['nota'];
+    })
    
   }
 
-  delete(idContact) {
-    this.contactosService.DeleteNota(idContact).subscribe(() => {
-      this.alertify.success('delete successful');
-  
-    });
-  }
- 
 }

@@ -6,6 +6,7 @@ import { Contacto } from '../_models/Contacto';
 import { PaginatedResult } from '../_models/pagination';
 import { map } from 'rxjs/operators';
 import { Nota } from '../_models/Nota';
+import { NoteDetailResolver } from '../_resolvers/note-detail.resolver';
 
 @Injectable({
   providedIn: 'root'
@@ -43,12 +44,6 @@ getSearch(word): Observable<Contacto[]> {
   return this.http.get<Contacto[]>(this.baseUrl + 'contact/' + word);
  }
 
- /*
-getNotas(id): Observable<Nota[]> {
-  return this.http.get<Nota[]>(this.baseUrl + 'todasnotas/' + id);
-}
-*/
-
 registerNotas(model: any) {
   return this.http.post(this.baseUrl + 'todasnotas/register', model);
 }
@@ -61,5 +56,12 @@ getSearchNotes(word): Observable<Nota[]> {
   return this.http.get<Nota[]>(this.baseUrl + 'todasnotas/' + word);
  }
 
+ getNote(id): Observable<Nota> {
+  return this.http.get<Nota>(this.baseUrl + 'notasid/' + id );
+}
+
+updateNota(nota: Nota) {
+  return this.http.put(this.baseUrl + 'todasnotas/' + nota.idNota, nota);
+}
 
 }

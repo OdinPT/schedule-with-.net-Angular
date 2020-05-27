@@ -1,3 +1,32 @@
+get contactos
+
+http://localhost:5000/api/contact/
+
+_
+
+get contacts by id
+http://localhost:5000/api/contact/19
+
+__
+Delete
+http://localhost:5000/api/contact/19
+
+__
+put
+
+http://localhost:5000/api/contact/20
+{
+    "nomeContact": "ALberto_asa",
+    "emailContact": "at@gmail.com",
+    "numeroContact": "2220",
+    "idEmployee": "1",
+    "dataAniversarioContact": "31-5-1950"
+}
+___
+POST
+http://localhost:5000/api/contact/register
+{
+    "nomeContact": "push",
     "emailContact": "at@gmail.com",
     "numeroContact": "2220",
     "idEmployee": "1",
@@ -35,3 +64,48 @@ http://localhost:5000/api/contact/camila
         .....
     }
 ]
+
+GET			// retorna todas as notas do contacto
+http://localhost:5000/api/todasnotas/13
+
+[
+    {
+        "idNota": 1,
+        "tituloNota": "Teste2",
+        "descNota": "asdasd",
+        "id_Func": 13
+    },
+
+DELEte 
+
+http://localhost:5000/api/todasnotas/1
+
+
+
+___otimizei função de carregar a lista com a do search e depois ver e como está implemmentado no outro projecto e fazer igual
+
+
+
+clorinda_pedroso
+passe: clorinda
+
+
+leandro
+passe: leandro
+
+
+leandro123
+passe: leandro123
+
+OdinPT21
+fm2020
+
+
+
+<div style="display: inline; padding-right:  20px;" >    
+       <button  class="btn-primary" style="width: 80px;" type="submit">Update</button>
+
+      <button  class="btn-primary" style="width: 60px;" (click)="delete(user.idNota)">Delete {{user.idNota}}</button>
+
+    </div>
+

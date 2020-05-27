@@ -4,20 +4,22 @@
 
     <div class="card-body"  style="display: inline;">
            
-      <input type="text" style="border-color: white; border: white;" class="card-title" id="tituloNota"
-           required [(ngModel)]="user.tituloNota" name="tituloNota">
+      <input type="text" style="border-color: white; border: white; width:120px" class="card-title" id="tituloNota"
+           required [(ngModel)]="nota.tituloNota" name="tituloNota">
       <p></p>     
       
       Nota <textarea type="text" class="form-control" id="name" rows="6" cols="50"
-          required [(ngModel)]="user.descNota" name="name"> </textarea>
+          required [(ngModel)]="nota.descNota" name="name"> </textarea>
 
-       <p class="card-text"> Nota: {{user.idNota}} </p>
+       <p class="card-text"> Nota: {{nota.idNota}} </p>
     </div>
 
     <div style="display: inline; padding-right:  20px;" >    
-      
-      <button  class="btn-primary" style="width: 100px;"> Ver Nota {{user.idNota}}</button>
 
+   
+       <!-- <a class="btn btn-primary" >Salvar </a> 
+        -->
+        
     </div>
 </div>
 </form>

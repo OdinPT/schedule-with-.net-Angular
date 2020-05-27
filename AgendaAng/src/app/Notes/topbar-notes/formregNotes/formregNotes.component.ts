@@ -23,7 +23,6 @@ export class FormregNotesComponent implements OnInit {
     this.createRegisterForm();
   }
 
-  
   createRegisterForm() {
     const aValue = localStorage.getItem('userid');
     const a = + aValue;
