@@ -1,25 +1,14 @@
-<form #redForm="ngForm" class="formreg" #registerForm="ngForm" >
-  <div class="shadow p-3 mb-5 bg-white rounded" style="margin-right: 5px;  margin-top: 5px; 
-                        height: 350px; position: static; border: 3px solid rgb(232, 233, 231);">
-
-    <div class="card-body"  style="display: inline;">
+<form #redForm="ngForm" class="formreg" #registerForm="ngForm"  >
+  
+    <div class="card-body">
            
-      <input type="text" style="border-color: white; border: white; width:120px" class="card-title" id="tituloNota"
+      <input type="text" class="card-title" id="tituloNota" style="height: 20px; width: 130px; box-shadow: 0 0 0 0; border: 0 none;"
            required [(ngModel)]="nota.tituloNota" name="tituloNota">
       <p></p>     
       
-      Nota <textarea type="text" class="form-control" id="name" rows="6" cols="50"
+      Nota <textarea type="text" class="form-control" id="name" rows="6" cols="50" style="box-shadow: 0 0 0 0; border: 1;"
+
           required [(ngModel)]="nota.descNota" name="name"> </textarea>
 
-       <p class="card-text"> Nota: {{nota.idNota}} </p>
-    </div>
-
-    <div style="display: inline; padding-right:  20px;" >    
-
-   
-       <!-- <a class="btn btn-primary" >Salvar </a> 
-        -->
-        
-    </div>
 </div>
 </form>

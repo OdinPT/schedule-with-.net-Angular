@@ -31,6 +31,7 @@ import { TopbarNotesComponent } from './Notes/topbar-notes/topbar-notes.componen
 import { AppNotesCardComponent } from './Notes/topbar-notes/app-notes-card/app-notes-card.component';
 import { FormregNotesComponent } from './Notes/topbar-notes/formregNotes/formregNotes.component';
 import { NoteDetailResolver } from './_resolvers/note-detail.resolver';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function tokenGetter() {
    return localStorage.getItem('token');
@@ -69,6 +70,7 @@ export function tokenGetter() {
          blacklistedRoutes: ['localhost:5000/api/auth'],
        }
     }),
+    BrowserAnimationsModule,
 	],
    providers: [
       AuthService,
@@ -86,3 +88,4 @@ export function tokenGetter() {
    ]
 })
 export class AppModule { }
+

@@ -11,6 +11,7 @@
     transition-duration: 500ms;
     transition-timing-function: ease-out;
     border: rgb(240, 22, 22);
+
 }
 
 .card-img-wrapper {
@@ -28,8 +29,9 @@ font-size: 12px;
     margin:2px;
     padding: 10px;
     color: #fff;
-    background-color: rgb(86, 85, 88);
-    border-color:white;
+    background-color: rgb(252, 250, 255);
+    border-color:rgba(236, 35, 35, 0.973);
+    height: -500px;
 }
 
 .card-title {
@@ -38,5 +40,8 @@ font-size: 12px;
     font-family: Arial;
     font-size: large;
     text-align: center;
+    padding: 20px;
+    border-color: rgb(233, 233, 233);
+   
 }
 
